@@ -31,7 +31,7 @@ export default class CharacterCard {
     return `
       <div class="col-md-4 mb-4">
         <div class="card card-compact h-100 shadow-sm">
-            <img src="${character.image}" class="card-img-top card-compact-img" alt="${character.name}">
+            <img src="${character.image}" loading="lazy" class="card-img-top card-compact-img" alt="${character.name}">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-start mb-2">
                 <h5 class="card-title mb-0">${character.name}</h5>
