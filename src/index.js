@@ -1,3 +1,7 @@
+import Utils from "./services/Utils.js";
+import CharacterProvider from "./services/CharacterProvider.js";
+import EquipmentProvider from "./services/EquipmentProvider.js";
+
 function cacherToutesLesSections() {
   let sections = document.querySelectorAll(".section-page");
   for (let i = 0; i < sections.length; i++) {
@@ -5,30 +9,41 @@ function cacherToutesLesSections() {
   }
 }
 
-function afficherSectionAccueil() {
+async function afficherSectionAccueil() {
   cacherToutesLesSections();
   document.getElementById("accueil").style.display = "block";
+  const personnages = await CharacterProvider.fetchCharacters();
 }
 
-function afficherSectionInventaire() {
+async function afficherSectionInventaire() {
   cacherToutesLesSections();
   document.getElementById("inventaire").style.display = "block";
 }
 
-function afficherSectionBoutique() {
+async function afficherSectionBoutique() {
   cacherToutesLesSections();
   document.getElementById("boutique").style.display = "block";
+  const equipements = await EquipmentProvider.fetchEquipments();
 }
 
-function router() {
-  let currentHash = window.location.hash;
+async function afficherDetailPersonnage(id) {
+  cacherToutesLesSections();
+  // TODO: afficher la section de détail du personnage et charger les données du personnage avec l'id fourni
+}
 
-  if (currentHash === "#accueil" || currentHash === "") {
-    afficherSectionAccueil();
-  } else if (currentHash === "#inventaire") {
-    afficherSectionInventaire();
-  } else if (currentHash === "#boutique") {
-    afficherSectionBoutique();
+async function router() {
+  const request = Utils.parseRequestURL();
+
+  if (
+    request.resource === "accueil" ||
+    request.resource === "" ||
+    !request.resource
+  ) {
+    await afficherSectionAccueil();
+  } else if (request.resource === "inventaire") {
+    await afficherSectionInventaire();
+  } else if (request.resource === "boutique") {
+    await afficherSectionBoutique();
   }
 }
 
