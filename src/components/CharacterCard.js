@@ -41,11 +41,6 @@ export default class CharacterCard {
                 <span class="badge bg-${badgeColor}">${character.rarete}</span>
               </div>
               <h6 class="card-subtitle mb-2 text-muted">${character.title}</h6>            
-              <ul class="list-group list-group-flush text-center mb-3">
-                <li class="list-group-item small">Force : ${character.stats.force}</li>
-                <li class="list-group-item small">Agilité : ${character.stats.agilite}</li>
-                <li class="list-group-item small">Intelligence : ${character.stats.intelligence}</li>
-              </ul>
               
               <div class="d-flex justify-content-between align-items-center">
                 <div class="text-warning">${stars}</div>
