@@ -14,6 +14,7 @@ export default class AccueilView {
     let itemsParPage = 6;
 
     function updateList(page) {
+      Utils.sauvegarderPage("pageAccueil", page); // sauvegarder la page ou l'utilisateur est dans le sessionStorage
       window.scrollTo(0, 0); // remonter en haut de la page à chaque changement de page
 
       let filtres = FilterService.getCurrentFilters();
@@ -38,7 +39,8 @@ export default class AccueilView {
       updateList(1); 
     });
 
-    // Lancement de l'affichage
-    updateList(1);
+    // Lancement de l'affichage + restauration de la page sauvegardée
+    let pageSauvegardee = Utils.recupererPage("pageAccueil");
+    updateList(pageSauvegardee);
   }
 }

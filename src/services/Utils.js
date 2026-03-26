@@ -18,6 +18,7 @@ const Utils = {
     return new Promise((resolve) => setTimeout(resolve, ms));
   },
 
+  
   calculerTotalPages: function(nombreElements, itemsParPage) {
     let total = parseInt(nombreElements / itemsParPage);
     if (nombreElements % itemsParPage !== 0) {
@@ -27,7 +28,20 @@ const Utils = {
       total = 1;
     }
     return total;
+  },
+
+  sauvegarderPage: function(nom, page) { // sauvegarde la page ou l'utilisateur est dans le sessionStorage
+    sessionStorage.setItem(nom, page);
+  },
+
+  recupererPage: function(nom) { // retourne la page sauvegardée ou 1 si aucune page n'est sauvegardée
+    let page = sessionStorage.getItem(nom);
+    if (page !== null) {
+      return parseInt(page);
+    }
+    return 1;
   }
+
 };
 
 export default Utils;
