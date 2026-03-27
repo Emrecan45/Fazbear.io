@@ -110,7 +110,7 @@ export default class CharacterProvider {
       console.error("Erreur CharacterProvider :", err);
       return [];
     }
-  };
+  }
 
   static async getCharacter(id) {
     try {
@@ -129,5 +129,31 @@ export default class CharacterProvider {
     } catch (err) {
       console.error("Erreur getCharacter :", err);
     }
-  };
+  }
+
+  static async fetchPersonnagesPossedes() {
+    const personnages = await this.fetchCharacters();
+    
+    let idsSauvegardes = [];
+    let sauvegarde = localStorage.getItem("inventairePersonnages");
+    if (sauvegarde !== null) {
+      idsSauvegardes = JSON.parse(sauvegarde);
+    }
+
+    let possedes = [];
+    for (let i = 0; i < personnages.length; i++) {
+      let p = personnages[i];
+      let aTrouve = false;
+      for (let j = 0; j < idsSauvegardes.length; j++) {
+        if (idsSauvegardes[j] == p.id) {
+          aTrouve = true;
+          break;
+        }
+      }
+      if (aTrouve === true) {
+        possedes.push(p);
+      }
+    }
+    return possedes;
+  }
 }
