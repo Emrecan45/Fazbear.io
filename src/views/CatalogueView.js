@@ -22,11 +22,7 @@ export default class CatalogueView {
     let equipements = await EquipmentProvider.fetchEquipments();
     let itemsParPage = 6;
     
-    // On lit le localStorage, sinon on force 'characters' par défaut
-    let mode = localStorage.getItem('modeCatalogue');
-    if (!mode) {
-      mode = 'characters';
-    }
+    let mode = 'characters';
 
     function setNoteFilterOptionsForMode(m) {
       let noteSelect = document.getElementById('noteFilter');
@@ -49,7 +45,6 @@ export default class CatalogueView {
     }
 
     function updateList(page) {
-      Utils.sauvegarderPage("pageCatalogue", page);
       window.scrollTo(0, 0);
 
       let filtres = FilterService.getFilters();
@@ -96,7 +91,6 @@ export default class CatalogueView {
 
     tabCharacters.onclick = function() {
       mode = 'characters';
-      localStorage.setItem('modeCatalogue', mode); // Sauvegarde
       tabCharacters.classList.add('active');
       tabEquipment.classList.remove('active');
       setNoteFilterOptionsForMode('characters');
@@ -107,7 +101,6 @@ export default class CatalogueView {
 
     tabEquipment.onclick = function() {
       mode = 'equipment';
-      localStorage.setItem('modeCatalogue', mode); // Sauvegarde
       tabEquipment.classList.add('active');
       tabCharacters.classList.remove('active');
       setNoteFilterOptionsForMode('equipment');
@@ -120,7 +113,6 @@ export default class CatalogueView {
     setNoteFilterOptionsForMode(mode);
     FilterService.init(function() {updateList(1);}, mode);
 
-    let pageSauvegardee = Utils.recupererPage("pageCatalogue");
-    updateList(pageSauvegardee);
+    updateList(1);
   }
 }

@@ -30,17 +30,6 @@ const Utils = {
     return total;
   },
 
-  sauvegarderPage: function(nom, page) { // sauvegarde la page ou l'utilisateur est dans le sessionStorage
-    sessionStorage.setItem(nom, page);
-  },
-
-  recupererPage: function(nom) { // retourne la page sauvegardée ou 1 si aucune page n'est sauvegardée
-    let page = sessionStorage.getItem(nom);
-    if (page !== null) {
-      return parseInt(page);
-    }
-    return 1;
-  }
 
 };
 

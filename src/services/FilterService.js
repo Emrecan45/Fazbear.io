@@ -4,12 +4,8 @@ export default class FilterService {
   static init(onChange, mode) {
     if (mode) modeVue = mode;
 
-    let filters = FilterService.loadFilters(modeVue);
-    FilterService.setFilters(filters);
-
+    FilterService.setFilters({ search: "", rarete: "", note: "", favoris: false, favorisList: [] });
     function update() {
-      let filter = FilterService.getFilters();
-      FilterService.saveFilters(modeVue, filter);
       onChange();
     }
 
@@ -29,31 +25,6 @@ export default class FilterService {
 
   static setMode(mode) {
     modeVue = mode;
-  }
-
-  static loadFilters(mode) {
-    let key;
-    if (mode === 'equipment') {
-      key = 'equipmentFilters';
-    } else {
-      key = 'characterFilters';
-    }
-
-    let str = localStorage.getItem(key);
-    if (str !== null) {
-      return JSON.parse(str);
-    }
-    return { search: "", rarete: "", note: "", favoris: false, favorisList: [] };
-  }
-
-  static saveFilters(mode, filters) {
-    let key;
-    if (mode === 'equipment') {
-      key = 'equipmentFilters';
-    } else {
-      key = 'characterFilters';
-    }
-    localStorage.setItem(key, JSON.stringify(filters));
   }
 
   static getFilters() {
