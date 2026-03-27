@@ -44,17 +44,6 @@ export default class CharacterProvider {
     return resultats;
   }
 
-  static saveFilters(filters) {
-    localStorage.setItem("characterFilters", JSON.stringify(filters));
-  }
-
-  static loadFilters() {
-    let str = localStorage.getItem("characterFilters");
-    if (str !== null) {
-      return JSON.parse(str);
-    }
-    return { search: "", rarete: "", note: "", favoris: false, favorisList: [] };
-  }
 
   static async fetchCharacters() {
     try {
