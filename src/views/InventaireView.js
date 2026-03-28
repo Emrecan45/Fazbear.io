@@ -35,6 +35,9 @@ export default class InventaireView {
       contentArea.innerHTML = "<p class='text-center text-white'>Votre inventaire d'animatroniques est vide, allez visiter la boutique !</p>" +
         "<img src='src/assets/img/Inventaire.png' alt='Inventaire vide' style='height: 450px; display: block; margin: 0 auto;'>";
       NavigationOnglet.gererOngletsActifs(mode);
+      NavigationOnglet.setNoteFilter(mode);
+      FilterService.setMode(mode);
+      FilterService.init(function() {}, mode);
       return;
     }
 
@@ -42,6 +45,9 @@ export default class InventaireView {
       contentArea.innerHTML = "<p class='text-center text-white'>Votre inventaire d'équipements est vide, allez visiter la boutique !</p>" +
         "<img src='src/assets/img/Inventaire.png' alt='Inventaire vide' style='height: 450px; display: block; margin: 0 auto;'>";
       NavigationOnglet.gererOngletsActifs(mode);
+      NavigationOnglet.setNoteFilter(mode);
+      FilterService.setMode(mode);
+      FilterService.init(function() {}, mode);
       return;
     }
 
