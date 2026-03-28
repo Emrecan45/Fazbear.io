@@ -1,18 +1,8 @@
+import RarityBadge from "./RarityBadge.js";
+
 export default class CharacterCard {
-  // fonction pour les couleurs de rareté
   static getBadgeColor(rarete) {
-    switch (rarete.toLowerCase()) {
-      case "mythique":
-        return "primary"; // Rouge
-      case "légendaire":
-        return "warning text-dark"; // Jaune
-      case "épique":
-        return "info"; // Bleu
-      case "rare":
-        return "danger"; // Orange
-      default:
-        return "secondary"; // Gris
-    }
+    return RarityBadge.getBadgeColor(rarete);
   }
 
   static getHtml(character) {
