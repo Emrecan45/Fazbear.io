@@ -7,6 +7,7 @@ import SearchBar from "../components/SearchBar.js";
 import FilterService from "../services/FilterService.js";
 import Utils from "../services/Utils.js";
 import NavigationOnglet from "../components/NavigationOnglet.js";
+import FavoriteButton from "../components/FavoriteButton.js";
 
 export default class CatalogueView {
   static async render(mode) {
@@ -32,8 +33,10 @@ export default class CatalogueView {
         let personnagesFiltres = CharacterProvider.filterCharacters(personnages, filtres);
         let totalPages = Utils.calculerTotalPages(personnagesFiltres.length, itemsParPage);
 
-        document.getElementById("characters-list").innerHTML = CharactersList.getHtml(personnagesFiltres, page, itemsParPage);
+        document.getElementById("characters-list").innerHTML = CharactersList.getHtml(personnagesFiltres, page, itemsParPage, 'catalogue');
         document.getElementById("pagination").innerHTML = Pagination.render(page, totalPages);
+        
+        FavoriteButton.gererFavoris();
 
       } else {
         let equipementsFiltres = EquipmentProvider.filterEquipments(equipements, filtres);
@@ -41,6 +44,7 @@ export default class CatalogueView {
 
         document.getElementById("characters-list").innerHTML = EquipmentList.getHtml(equipementsFiltres, page, itemsParPage);
         document.getElementById("pagination").innerHTML = Pagination.render(page, totalPages);
+        FavoriteButton.gererFavoris();
       }
 
       Pagination.gererClics(function(pageCible) {

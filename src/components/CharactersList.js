@@ -1,7 +1,7 @@
 import CharacterCard from "./CharacterCard.js";
 
 export default class CharactersList {
-  static getHtml(characters, page = 1, itemsParPage = 6) {
+  static getHtml(characters, page = 1, itemsParPage = 6, origine) {
     if (characters.length === 0) {
       return "<p class='text-center'>Aucun animatronique trouvé.</p>";
     }
@@ -12,7 +12,7 @@ export default class CharactersList {
 
     for (let i = startIndex; i < endIndex; i++) {
       if (i < characters.length) {
-        html += CharacterCard.getHtml(characters[i]);
+        html += CharacterCard.getHtml(characters[i], true, origine);
       }
     }
 

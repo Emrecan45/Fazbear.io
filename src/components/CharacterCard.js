@@ -1,50 +1,57 @@
-export default class CharacterCard {
-  // fonction pour les couleurs de rareté
-  static getBadgeColor(rarete) {
-    switch (rarete.toLowerCase()) {
-      case "mythique":
-        return "primary"; // Rouge
-      case "légendaire":
-        return "warning text-dark"; // Jaune
-      case "épique":
-        return "info"; // Bleu
-      case "rare":
-        return "danger"; // Orange
-      default:
-        return "secondary"; // Gris
-    }
-  }
+import RarityBadge from "./RarityBadge.js";
+import FavoriteButton from "./FavoriteButton.js";
 
-  static getHtml(character) {
-    let stars = "";
+export default class CharacterCard {
+
+  static getHtml(character, boutonFavori = true, origine) {
+    let etoiles = "";
     let note = character.note;
-    let badgeColor = this.getBadgeColor(character.rarete);
 
     // Afficher les étoiles seulement si l'utilisateur a déjà donné une note au perso
     if (typeof note !== "undefined" && note > 0) {
       for (let j = 1; j <= 5; j++) {
         if (j <= note) {
-          stars += "<span>★</span>";
+          etoiles += "<span>★</span>";
         } else {
-          stars += "<span>☆</span>";
+          etoiles += "<span>☆</span>";
         }
       }
     }
 
+    // mettre le coeur de favoris seulement si boutonFavori est true
+    let coeurHtml = "";
+    if (boutonFavori === true) {
+      // style pour positionner le coeur en haut à droite de la card
+      const style = "position: absolute; top: 4px; right: 13px;";
+      coeurHtml = FavoriteButton.getHtml(character.id, 'characters', style);
+    }
+
+    let href = "#/";
+    if (origine === 'inventaire') {
+      href += "inventaire/personnage/" + character.id;
+    } else if (origine === 'catalogue') {
+      href += "catalogue/personnage/" + character.id;
+    } else {
+      href += "personnage/" + character.id;
+    }
+
     return `
       <div class="col-md-4 mb-4">
-        <div class="card card-compact h-100 shadow-sm">
+        <div class="card card-compact h-100 shadow-sm position-relative">
+            
+            ${coeurHtml}
+
             <img src="${character.image}" loading="lazy" class="card-img-top card-compact-img" alt="${character.name}">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-start mb-2">
                 <h5 class="card-title mb-0">${character.name}</h5>
-                <span class="badge bg-${badgeColor}">${character.rarete}</span>
+                ${RarityBadge.getHtml(character.rarete)}
               </div>
               <h6 class="card-subtitle mb-2 text-muted">${character.title}</h6>            
               
               <div class="d-flex justify-content-between align-items-center">
-                <div class="text-warning">${stars}</div>
-                <a href="#/personnage/${character.id}" class="btn btn-sm btn-outline-light">Détails</a>
+                <div class="text-warning">${etoiles}</div>
+                <a href="${href}" class="btn btn-sm btn-outline-light">Détails</a>
               </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ import SearchBar from "../components/SearchBar.js";
 import FilterService from "../services/FilterService.js";
 import Utils from "../services/Utils.js";
 import NavigationOnglet from "../components/NavigationOnglet.js";
+import FavoriteButton from "../components/FavoriteButton.js";
 
 export default class InventaireView {
   static async render() {
@@ -35,6 +36,9 @@ export default class InventaireView {
       contentArea.innerHTML = "<p class='text-center text-white'>Votre inventaire d'animatroniques est vide, allez visiter la boutique !</p>" +
         "<img src='src/assets/img/Inventaire.png' alt='Inventaire vide' style='height: 450px; display: block; margin: 0 auto;'>";
       NavigationOnglet.gererOngletsActifs(mode);
+      NavigationOnglet.setNoteFilter(mode);
+      FilterService.setMode(mode);
+      FilterService.init(function() {}, mode);
       return;
     }
 
@@ -42,6 +46,9 @@ export default class InventaireView {
       contentArea.innerHTML = "<p class='text-center text-white'>Votre inventaire d'équipements est vide, allez visiter la boutique !</p>" +
         "<img src='src/assets/img/Inventaire.png' alt='Inventaire vide' style='height: 450px; display: block; margin: 0 auto;'>";
       NavigationOnglet.gererOngletsActifs(mode);
+      NavigationOnglet.setNoteFilter(mode);
+      FilterService.setMode(mode);
+      FilterService.init(function() {}, mode);
       return;
     }
 
@@ -55,13 +62,17 @@ export default class InventaireView {
       if (mode === 'personnages') {
         let personnagesFiltres = CharacterProvider.filterCharacters(personnagesDuJoueur, filtres);
         let totalPages = Utils.calculerTotalPages(personnagesFiltres.length, itemsParPage);
-        document.getElementById("characters-list").innerHTML = CharactersList.getHtml(personnagesFiltres, page, itemsParPage);
+        document.getElementById("characters-list").innerHTML = CharactersList.getHtml(personnagesFiltres, page, itemsParPage, 'inventaire');
         document.getElementById("pagination").innerHTML = Pagination.render(page, totalPages);
+        
+        FavoriteButton.gererFavoris();
+
       } else {
         let equipementsFiltres = EquipmentProvider.filterEquipments(equipementsDuJoueur, filtres);
         let totalPages = Utils.calculerTotalPages(equipementsFiltres.length, itemsParPage);
         document.getElementById("characters-list").innerHTML = EquipmentList.getHtml(equipementsFiltres, page, itemsParPage);
         document.getElementById("pagination").innerHTML = Pagination.render(page, totalPages);
+        FavoriteButton.gererFavoris();
       }
 
       Pagination.gererClics(function(pageCible) {

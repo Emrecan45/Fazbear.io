@@ -25,18 +25,32 @@ async function router() {
     await AccueilView.render();
   } 
   else if (request.resource === "catalogue") {
-    document.getElementById("catalogue").style.display = "block";
-    await CatalogueView.render(request.id || 'personnages'); 
+    // si demande un personnage via catalogue
+    if (request.id === 'personnage' && request.verb) {
+      document.getElementById("personnage").style.display = "block";
+      await DetailCharacterView.render(request.verb, 'catalogue');
+    } else {
+      document.getElementById("catalogue").style.display = "block";
+      await CatalogueView.render(request.id || 'personnages');
+    }
   }
   else if (request.resource === "inventaire") {
-    document.getElementById("inventaire").style.display = "block";
-    await InventaireView.render();
+    // si demande un personnage via inventaire
+    if (request.id === 'personnage' && request.verb) {
+      document.getElementById("personnage").style.display = "block";
+      await DetailCharacterView.render(request.verb, 'inventaire');
+    } else {
+      document.getElementById("inventaire").style.display = "block";
+      await InventaireView.render();
+    }
   } else if (request.resource === "boutique") {
     document.getElementById("boutique").style.display = "block";
     document.body.classList.add('boutique');
     await BoutiqueView.render();
   } else if (request.resource === "personnage") {
-    await DetailCharacterView.render(request.id);
+    const origine = request.verb || null;
+    document.getElementById("personnage").style.display = "block";
+    await DetailCharacterView.render(request.id, origine);
   }
 }
 

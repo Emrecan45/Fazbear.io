@@ -27,7 +27,7 @@ export default class CharacterProvider {
       if (criteres.favoris === true) {
         let estDansFavoris = false;
         for (let j = 0; j < criteres.favorisList.length; j++) {
-          if (criteres.favorisList[j] === p.id) {
+          if (criteres.favorisList[j] == p.id) { 
             estDansFavoris = true;
             break;
           }
@@ -64,6 +64,10 @@ export default class CharacterProvider {
           item.image,
           item.rarete,
         );
+        // si item a un equipmentId, on l'ajoute au personnage
+        if (item.equipmentId !== undefined) {
+          perso.equipmentId = item.equipmentId;
+        }
         // Appliquer notes utilisateur depuis le localStorage
         let notesPerso = {};
         const notesStr = localStorage.getItem("notesPersonnages");
@@ -89,7 +93,7 @@ export default class CharacterProvider {
     try {
       const response = await fetch(`http://localhost:3000/characters/${id}`);
       const c = await response.json();
-      return new Character(
+      const perso = new Character(
         c.id,
         c.name,
         c.title,
@@ -99,6 +103,10 @@ export default class CharacterProvider {
         c.image,
         c.rarete,
       );
+      if (c.equipmentId !== undefined) {
+        perso.equipmentId = c.equipmentId;
+      }
+      return perso;
     } catch (err) {
       console.error("Erreur getCharacter :", err);
     }
@@ -118,7 +126,7 @@ export default class CharacterProvider {
       let p = personnages[i];
       let aTrouve = false;
       for (let j = 0; j < idsSauvegardes.length; j++) {
-        if (idsSauvegardes[j] == p.id) {
+        if (idsSauvegardes[j] === p.id) {
           aTrouve = true;
           break;
         }
@@ -128,5 +136,24 @@ export default class CharacterProvider {
       }
     }
     return possedes;
+  }
+
+  static async updateCharacterEquipment(characterId, equipmentId) {
+    // On récupère le personnage
+    const responseGet = await fetch(`http://localhost:3000/characters/${characterId}`);
+    const personnage = await responseGet.json();
+
+    // On modifie l'id de l'équipement
+    personnage.equipmentId = equipmentId;
+
+    // On écrase l'ancien personnage par le nouveau avec le nouvel équipement
+    const responsePut = await fetch(`http://localhost:3000/characters/${characterId}`, {
+      method: "PUT",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(personnage)
+    });
+
+    const updated = await responsePut.json();
+    return updated;
   }
 }

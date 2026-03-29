@@ -1,301 +1,397 @@
 {
   "characters": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Blighted Springtrap",
       "title": "Suitte Corrompue",
       "rarete": "Légendaire",
-      "stats": { "force": 84, "agilite": 36, "intelligence": 78 },
+      "stats": {
+        "force": 84,
+        "agilite": 36,
+        "intelligence": 78
+      },
       "description": "Une version détériorée de Springtrap, rongée et animée par une présence malveillante.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/BlightedSpringtrap.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Bonnie",
       "title": "Guitariste Animatronique",
       "rarete": "Rare",
-      "stats": { "force": 42, "agilite": 78, "intelligence": 55 },
+      "stats": {
+        "force": 42,
+        "agilite": 78,
+        "intelligence": 55
+      },
       "description": "Le lapin guitariste du groupe : mystérieux le jour, agressif la nuit.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/Bonnie.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Chica",
       "title": "Chanteuse / Amatrice de Pizza",
       "rarete": "Rare",
-      "stats": { "force": 40, "agilite": 60, "intelligence": 52 },
+      "stats": {
+        "force": 40,
+        "agilite": 60,
+        "intelligence": 52
+      },
       "description": "Animatronique poule connue pour son amour de la nourriture et son compagnon cupcake.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/Chica.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Flaming Springtrap",
       "title": "Incarnation Enflammée",
       "rarete": "Mythique",
-      "stats": { "force": 86, "agilite": 38, "intelligence": 72 },
+      "stats": {
+        "force": 86,
+        "agilite": 38,
+        "intelligence": 72
+      },
       "description": "Une variante de Springtrap perpétuellement embrasée, terrifiante et implacable.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/FlamingSpringtrap.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Foam Bee",
       "title": "Abeille Jouet",
       "rarete": "Commun",
-      "stats": { "force": 28, "agilite": 86, "intelligence": 40 },
+      "stats": {
+        "force": 28,
+        "agilite": 86,
+        "intelligence": 40
+      },
       "description": "Petit animatronique vif et espiègle, conçu comme une attraction enfantine.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/FoamBee.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Foam Sharpay",
       "title": "Divette en Mousse",
       "rarete": "Commun",
-      "stats": { "force": 30, "agilite": 72, "intelligence": 48 },
+      "stats": {
+        "force": 30,
+        "agilite": 72,
+        "intelligence": 48
+      },
       "description": "Une mascotte théâtrale, exubérante et aux réactions imprévisibles la nuit.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/FoamSharpay.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Freddy",
       "title": "Mascotte Principale",
       "rarete": "Rare",
-      "stats": { "force": 70, "agilite": 50, "intelligence": 82 },
+      "stats": {
+        "force": 70,
+        "agilite": 50,
+        "intelligence": 82
+      },
       "description": "Le leader du groupe, calculateur et souvent associé à l'esprit d'un enfant disparu.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/Freddy.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Frozen Freddy",
       "title": "Édition Gelée",
       "rarete": "Épique",
-      "stats": { "force": 68, "agilite": 44, "intelligence": 70 },
+      "stats": {
+        "force": 68,
+        "agilite": 44,
+        "intelligence": 70
+      },
       "description": "Une variante glacée de Freddy, figée mais dangereuse lorsqu'elle reprend vie.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/FrozenFreddy.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Mangle",
       "title": "Amalgame Démantelé",
       "rarete": "Épique",
-      "stats": { "force": 36, "agilite": 92, "intelligence": 64 },
+      "stats": {
+        "force": 36,
+        "agilite": 92,
+        "intelligence": 64
+      },
       "description": "Un animatronique en pièces, reconstruit et instable, célèbre pour son apparence mutilée.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/Mangle.jpg"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "OP Entity",
       "title": "Entité Anonyme",
       "rarete": "Mythique",
-      "stats": { "force": 58, "agilite": 48, "intelligence": 90 },
+      "stats": {
+        "force": 58,
+        "agilite": 48,
+        "intelligence": 90
+      },
       "description": "Une présence énigmatique et cosmique, difficile à cerner et étudiée par les fans.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/OPEntity.jpg"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Plush Chica",
       "title": "Peluche Amicale",
       "rarete": "Commun",
-      "stats": { "force": 18, "agilite": 40, "intelligence": 34 },
+      "stats": {
+        "force": 18,
+        "agilite": 40,
+        "intelligence": 34
+      },
       "description": "Version en peluche plus douce de Chica : trompeuse par son aspect innocent.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/PlushChica.jpg"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Plush Foxy",
       "title": "Peluche Pirate",
       "rarete": "Commun",
-      "stats": { "force": 34, "agilite": 66, "intelligence": 42 },
+      "stats": {
+        "force": 34,
+        "agilite": 66,
+        "intelligence": 42
+      },
       "description": "Une version peluche de Foxy, espiègle et parfois agressive selon la légende.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/PlushFoxy.jpg"
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Plush Freddy",
       "title": "Peluche du Leader",
       "rarete": "Commun",
-      "stats": { "force": 30, "agilite": 36, "intelligence": 48 },
+      "stats": {
+        "force": 30,
+        "agilite": 36,
+        "intelligence": 48
+      },
       "description": "Réplique en peluche de Freddy, souvent utilisée comme mascotte douce mais troublante.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/PlushFreddy.jpg"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Plush Funtime Freddy",
       "title": "Peluche Farceur",
       "rarete": "Commun",
-      "stats": { "force": 34, "agilite": 58, "intelligence": 52 },
+      "stats": {
+        "force": 34,
+        "agilite": 58,
+        "intelligence": 52
+      },
       "description": "Une version Funtime en peluche, mélange d'innocence et de bizarrerie.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/PlushFuntimeFreddy.jpg"
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Ringmaster Foxy",
       "title": "Maître de Cérémonie",
       "rarete": "Épique",
-      "stats": { "force": 48, "agilite": 66, "intelligence": 60 },
+      "stats": {
+        "force": 48,
+        "agilite": 66,
+        "intelligence": 60
+      },
       "description": "Foxy déguisé en ringmaster, charismatique et dangereux sur scène.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/RingmasterFoxy.jpg"
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "Serpent Mangle",
       "title": "Variation Sinueuse",
       "rarete": "Rare",
-      "stats": { "force": 38, "agilite": 88, "intelligence": 56 },
+      "stats": {
+        "force": 38,
+        "agilite": 88,
+        "intelligence": 56
+      },
       "description": "Une déclinaison de Mangle avec des éléments serpentins, imprévisible et rapide.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/SerpentMangle.jpg"
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "Sharpay",
       "title": "Divette Glamour",
       "rarete": "Rare",
-      "stats": { "force": 26, "agilite": 70, "intelligence": 50 },
+      "stats": {
+        "force": 26,
+        "agilite": 70,
+        "intelligence": 50
+      },
       "description": "Personnage flamboyant et théâtral, conçu pour attirer l'attention.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/Sharpay.jpg"
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "Spring Bonnie",
       "title": "Prédécesseur ",
       "rarete": "Légendaire",
-      "stats": { "force": 64, "agilite": 72, "intelligence": 60 },
+      "stats": {
+        "force": 64,
+        "agilite": 72,
+        "intelligence": 60
+      },
       "description": "Ancienne version liée aux origines des springlocks, mystérieuse et dangereuse.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/SpringBonnie.jpg"
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "Springtrap",
       "title": "Hôte du Passé",
       "rarete": "Légendaire",
-      "stats": { "force": 88, "agilite": 42, "intelligence": 86 },
+      "stats": {
+        "force": 88,
+        "agilite": 42,
+        "intelligence": 86
+      },
       "description": "Le costume qui abrite l'un des antagonistes humains les plus sinistres.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/Springtrap.jpg"
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "Swing Bee",
       "title": "Abeille Musicale",
       "rarete": "Commun",
-      "stats": { "force": 24, "agilite": 80, "intelligence": 38 },
+      "stats": {
+        "force": 24,
+        "agilite": 80,
+        "intelligence": 38
+      },
       "description": "Petit personnage d'appoint, souvent utilisé dans les décors et spectacles.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/SwingBee.jpg"
     },
     {
-      "id": 21,
+      "id": "21",
       "name": "Toy Bonnie",
       "title": "Bonnie (Réédition Toy)",
       "rarete": "Rare",
-      "stats": { "force": 44, "agilite": 82, "intelligence": 58 },
+      "stats": {
+        "force": 44,
+        "agilite": 82,
+        "intelligence": 58
+      },
       "description": "Version modernisée et plus lisse de Bonnie, conçue pour les enfants.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/ToyBonnie.jpg"
     },
     {
-      "id": 22,
+      "id": "22",
       "name": "Withered Bonnie",
       "title": "Bonnie Dégradé",
       "rarete": "Rare",
-      "stats": { "force": 40, "agilite": 46, "intelligence": 50 },
+      "stats": {
+        "force": 40,
+        "agilite": 46,
+        "intelligence": 50
+      },
       "description": "Une version abîmée et inquiétante de Bonnie, laissée en pièces.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/WitheredBonnie.jpg"
     },
     {
-      "id": 23,
+      "id": "23",
       "name": "Withered Chica",
       "title": "Chica Endommagée",
       "rarete": "Rare",
-      "stats": { "force": 36, "agilite": 44, "intelligence": 48 },
+      "stats": {
+        "force": 36,
+        "agilite": 44,
+        "intelligence": 48
+      },
       "description": "Chica en mauvais état, réputée pour son apparence inquiétante et son compagnon cupcake.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/WitheredChica.jpg"
     },
     {
-      "id": 24,
+      "id": "24",
       "name": "Woodland Freddy",
       "title": "Freddy Forestier",
       "rarete": "Épique",
-      "stats": { "force": 66, "agilite": 46, "intelligence": 62 },
+      "stats": {
+        "force": 66,
+        "agilite": 46,
+        "intelligence": 62
+      },
       "description": "Une réinterprétation forestière de Freddy, plus rustique mais menaçante.",
-      "note": 0.0,
+      "note": 0,
       "image": "./src/assets/img/WoodlandFreddy.jpg"
     }
   ],
-
   "equipment": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Mécanisme Springlock Instable",
       "bonusStat": "+25 force",
       "rarete": "Légendaire"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Endosquelette en Titane",
       "bonusStat": "+40 force",
       "rarete": "Mythique"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Badge du Gardien de Nuit",
       "bonusStat": "+15 intelligence",
       "rarete": "Commun"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Servomoteurs Révisés",
       "bonusStat": "+15 agilite",
       "rarete": "Commun"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Disque d'Illusion Sonore",
       "bonusStat": "+50 intelligence",
       "rarete": "Légendaire"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Guitare Électrique Surchargée",
       "bonusStat": "+20 agilite",
       "rarete": "Rare"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Costume Ignifugé",
       "bonusStat": "+30 force",
       "rarete": "Épique"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Module de Reconnaissance Faciale",
       "bonusStat": "+25 intelligence",
       "rarete": "Rare"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Boîte à Musique de la Marionnette",
       "bonusStat": "+30 agilite",
       "rarete": "Épique"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
