@@ -62,9 +62,8 @@ export default class CharacterProvider {
           item.description,
           item.note,
           item.image,
-          item.rarete,
+          item.rarete
         );
-        // si item a un equipmentId, on l'ajoute au personnage
         if (item.equipmentId !== undefined) {
           perso.equipmentId = item.equipmentId;
         }
@@ -90,7 +89,7 @@ export default class CharacterProvider {
         c.description,
         c.note,
         c.image,
-        c.rarete,
+        c.rarete
       );
       if (c.equipmentId !== undefined) {
         perso.equipmentId = c.equipmentId;
@@ -160,5 +159,15 @@ export default class CharacterProvider {
 
     const updated = await responsePut.json();
     return updated;
+  }
+
+  static async resetEquipments() {
+    const personnages = await this.fetchCharacters();
+    for (let i = 0; i < personnages.length; i++) {
+      let p = personnages[i];
+      if (p.equipmentId !== null && p.equipmentId !== undefined) {
+        await this.updateCharacterEquipment(p.id, null);
+      }
+    }
   }
 }

@@ -4,8 +4,19 @@ import InventaireView from "./views/InventaireView.js";
 import BoutiqueView from "./views/BoutiqueView.js";
 import DetailCharacterView from "./views/DetailCharacterView.js";
 import CatalogueView from "./views/CatalogueView.js";
+import CharacterProvider from "./services/CharacterProvider.js";
 
 let header = null;
+
+async function initApp() {
+  // reset des équipements possédés dans le json
+  let dejaReset = sessionStorage.getItem("reset_effectue");
+  if (dejaReset === null) {
+    await CharacterProvider.resetEquipments();
+    sessionStorage.setItem("reset_effectue", "true");
+  }
+  router();
+}
 
 function cacherToutesLesSections() {
   let sections = document.querySelectorAll(".section-page");
@@ -73,4 +84,4 @@ async function router() {
 }
 
 window.addEventListener("hashchange", router);
-window.addEventListener("load", router);
+window.addEventListener("load", initApp);

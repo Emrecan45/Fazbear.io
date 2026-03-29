@@ -95,32 +95,15 @@ export default class DetailCharacterView {
     if (origine === 'inventaire') {
       const tousLesEquipements = await EquipmentProvider.fetchEquipments();
       let equipementActuel = null;
-
-      let texteInv = localStorage.getItem("inventaireEquipements");
-      let monSac = [];
-      if (texteInv !== null) {
-          monSac = JSON.parse(texteInv);
-      }
       
       if (character.equipmentId !== null && character.equipmentId !== undefined) {
-        let jeLePossede = false;
-        for (let i = 0; i < monSac.length; i++) {
-            if (monSac[i] === character.equipmentId) {
-                jeLePossede = true;
-                break;
-            }
-        }
-
-        if (jeLePossede === true) {
-            for (let k = 0; k < tousLesEquipements.length; k++) {
-              if (tousLesEquipements[k].id === character.equipmentId) {
-                equipementActuel = tousLesEquipements[k];
-                break;
-              }
-            }
+        for (let k = 0; k < tousLesEquipements.length; k++) {
+          if (tousLesEquipements[k].id === character.equipmentId) {
+            equipementActuel = tousLesEquipements[k];
+            break;
+          }
         }
       }
-
       this.appliquerEquipmentBonus(equipementActuel, character);
 
       // Proposer les équipements du joueur
