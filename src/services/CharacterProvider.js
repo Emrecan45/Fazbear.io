@@ -1,4 +1,5 @@
 import Character from "../models/Character.js";
+import URL_API from "../config.js";"../config.js";
 
 export default class CharacterProvider {
   static filterCharacters(personnages, criteres) {
@@ -47,7 +48,7 @@ export default class CharacterProvider {
   static async fetchCharacters() {
     try {
       // récupèrer la table de personnages
-      const resPersos = await fetch("http://localhost:3000/characters");
+      const resPersos = await fetch(`${URL_API}/characters`);
 
       const charactersJson = await resPersos.json();
       const listePersonnagesComplets = [];
@@ -79,7 +80,7 @@ export default class CharacterProvider {
 
   static async getCharacter(id) {
     try {
-      const response = await fetch(`http://localhost:3000/characters/${id}`);
+      const response = await fetch(`${URL_API}/characters/${id}`);
       const c = await response.json();
       const perso = new Character(
         c.id,
@@ -128,14 +129,14 @@ export default class CharacterProvider {
 
   static async updateCharacterEquipment(characterId, equipmentId) {
     // On récupère le personnage
-    const responseGet = await fetch(`http://localhost:3000/characters/${characterId}`);
+    const responseGet = await fetch(`${URL_API}/characters/${characterId}`);
     const personnage = await responseGet.json();
 
     // On modifie l'id de l'équipement
     personnage.equipmentId = equipmentId;
 
     // On écrase l'ancien personnage par le nouveau avec le nouvel équipement
-    const responsePut = await fetch(`http://localhost:3000/characters/${characterId}`, {
+    const responsePut = await fetch(`${URL_API}/characters/${characterId}`, {
       method: "PUT",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(personnage)
@@ -146,12 +147,12 @@ export default class CharacterProvider {
   }
 
   static async updateCharacterNote(characterId, note) {
-    const responseGet = await fetch(`http://localhost:3000/characters/${characterId}`);
+    const responseGet = await fetch(`${URL_API}/characters/${characterId}`);
     const personnage = await responseGet.json();
 
     personnage.note = note;
 
-    const responsePut = await fetch(`http://localhost:3000/characters/${characterId}`, {
+    const responsePut = await fetch(`${URL_API}/characters/${characterId}`, {
       method: "PUT",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(personnage)
