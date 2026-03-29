@@ -2,6 +2,7 @@ import CharacterProvider from "../services/CharacterProvider.js";
 import EquipmentProvider from "../services/EquipmentProvider.js";
 import Utils from "../services/Utils.js";
 import RarityBadge from "../components/RarityBadge.js";
+import StatBar from "../components/StatBar.js";
 
 export default class DetailCharacterView {
   static async render(id, origine) {
@@ -31,10 +32,9 @@ export default class DetailCharacterView {
 
     section.innerHTML = `
       <div class="position-relative">
-        <button id="back-btn" class="btn btn-outline-light position-absolute top-0">Retour</button>
+      <button id="back-btn" class="btn btn-outline-light position-absolute">Retour</button>
         <div class="row mt-4 mb-4">
           <div class="col-md-5 text-center">
-            <h2>${RarityBadge.getHtml(character.rarete)}</h2>
             <h1 class="text-white">${character.name}</h1>
           </div>
         </div>
@@ -59,9 +59,13 @@ export default class DetailCharacterView {
             <h3>${character.title}</h3>
             <p class="fs-5 mb-4">${character.description}</p>
             
-            <p class="fs-5 mb-2" data-stat="force">Force : ${character.stats.force}</p>
-            <p class="fs-5 mb-2" data-stat="agilite">Agilité : ${character.stats.agilite}</p>
-            <p class="fs-5 mb-2" data-stat="intelligence">Intelligence : ${character.stats.intelligence}</p>
+            <div class="d-flex align-items-center mb-4">
+              <span class="fs-5 me-3">Rareté :</span>
+              <h3 class="mb-0">${RarityBadge.getHtml(character.rarete)}</h3>
+            </div>
+            ${StatBar.getHtml('force', 'Force', character.stats.force, 'red')}
+            ${StatBar.getHtml('agilite', 'Agilité', character.stats.agilite, 'green')}
+            ${StatBar.getHtml('intelligence', 'Intelligence', character.stats.intelligence, 'blue')}
             <div id="champ-equipmnt"></div>
           </div>
         </div>
@@ -134,7 +138,6 @@ export default class DetailCharacterView {
     const conteneur = document.createElement("div");
 
     const etiquette = document.createElement("label");
-    etiquette.setAttribute("for", "select-equipement");
     etiquette.className = "text-white fs-5 mb-2 me-2"; 
     etiquette.textContent = "Équipement :";
     conteneur.appendChild(etiquette);
@@ -195,24 +198,48 @@ export default class DetailCharacterView {
 
   static appliquerEquipmentBonus(equipement, character) {
     const section = document.getElementById("personnage");
-    // Nettoyage des anciens bonus affichés
-    const lignesStats = section.querySelectorAll("[data-stat]");
-    for (let i = 0; i < lignesStats.length; i++) {
-      const ancienBadge = lignesStats[i].querySelector(".equipment-bonus");
-      if (ancienBadge) {
-        ancienBadge.parentNode.removeChild(ancienBadge);
-      }
+    const anciensBadges = section.querySelectorAll(".equipment-bonus");
+    for (let i = 0; i < anciensBadges.length; i++) {
+      anciensBadges[i].remove();
     }
 
-    if (equipement !== null) {
-      const bonus = Utils.parseBonusStat(equipement.bonusStat);
-      const ligneCible = section.querySelector("[data-stat='" + bonus.stat + "']");
-      const total = character.stats[bonus.stat] + bonus.valeur;
+    const statsList = ["force", "agilite", "intelligence"];
+    
+    for (let i = 0; i < statsList.length; i++) {
+        const stat = statsList[i];
+        const block = section.querySelector(`[data-stat='${stat}']`);
+        
+        if (block) {
+            const label = block.querySelector(".stat-label");
+            const bar = block.querySelector("progress");
 
-      const badge = document.createElement("span");
-      badge.className = "equipment-bonus text-success ms-2";
-      badge.textContent = `${bonus.texte} (${total})`;
-      ligneCible.appendChild(badge);
+            // on veux la valeur avec le bonus de l'équipement
+            const valeurFinale = character.getStatFinale(stat, equipement);
+            const baseVal = character.stats[stat];
+
+            // Rendu du texte
+            let nomPropre = "";
+            if (stat === "force") {
+                nomPropre = "Force";
+            } else if (stat === "agilite") {
+                nomPropre = "Agilité";
+            } else if (stat === "intelligence") {
+                nomPropre = "Intelligence";
+            }
+            label.textContent = `${nomPropre} : ${baseVal}`;
+
+            // rendu de la barre de stat
+            bar.value = valeurFinale;
+
+            // texte de bonus si on en a un
+            if (valeurFinale > baseVal && equipement !== null && equipement.bonusStat) {
+                const bonus = Utils.parseBonusStat(equipement.bonusStat);
+                const bonusTxt = document.createElement("span");
+                bonusTxt.className = "equipment-bonus text-success ms-2";
+                bonusTxt.textContent = `${bonus.texte} (${valeurFinale})`;
+                label.appendChild(bonusTxt);
+            }
+        }
     }
   }
 }
