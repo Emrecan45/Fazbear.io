@@ -33,7 +33,7 @@ export default class CatalogueView {
         let personnagesFiltres = CharacterProvider.filterCharacters(personnages, filtres);
         let totalPages = Utils.calculerTotalPages(personnagesFiltres.length, itemsParPage);
 
-        document.getElementById("characters-list").innerHTML = CharactersList.getHtml(personnagesFiltres, page, itemsParPage);
+        document.getElementById("characters-list").innerHTML = CharactersList.getHtml(personnagesFiltres, page, itemsParPage, 'catalogue');
         document.getElementById("pagination").innerHTML = Pagination.render(page, totalPages);
         
         FavoriteButton.gererFavoris();

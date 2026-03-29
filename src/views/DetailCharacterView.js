@@ -1,8 +1,10 @@
 import CharacterProvider from "../services/CharacterProvider.js";
+import EquipmentProvider from "../services/EquipmentProvider.js";
+import Utils from "../services/Utils.js";
 import RarityBadge from "../components/RarityBadge.js";
 
 export default class DetailCharacterView {
-  static async render(id) {
+  static async render(id, origine) {
     
     // on cible d'abord la section ou on va afficher le personnage
     let section = document.getElementById("personnage");
@@ -55,9 +57,10 @@ export default class DetailCharacterView {
           <h3>${character.title}</h3>
           <p class="fs-5 mb-4">${character.description}</p>
           
-          <p class="fs-5 mb-2">Force : ${character.stats.force}</p>
-          <p class="fs-5 mb-2">Agilité : ${character.stats.agilite}</p>
-          <p class="fs-5 mb-2">Intelligence : ${character.stats.intelligence}</p>
+          <p class="fs-5 mb-2" data-stat="force">Force : ${character.stats.force}</p>
+          <p class="fs-5 mb-2" data-stat="agilite">Agilité : ${character.stats.agilite}</p>
+          <p class="fs-5 mb-2" data-stat="intelligence">Intelligence : ${character.stats.intelligence}</p>
+          <div id="champ-equipmnt"></div>
 
           <div class="mt-auto text-end pt-3">
             <button id="back-btn" class="btn btn-outline-light">Retour</button>
@@ -98,5 +101,118 @@ export default class DetailCharacterView {
     boutonRetour.addEventListener("click", function() {
       window.history.back();
     });
+
+    // Afficher le bonus d'équipement uniquement si on vient de l'inventaire
+    if (origine === 'inventaire') {
+      const tousLesEquipements = await EquipmentProvider.fetchEquipments();
+      let equipementActuel = null;
+      
+      // On cherche l'équipement du personnage
+      if (character.equipmentId !== null && character.equipmentId !== undefined) {
+        for (let k = 0; k < tousLesEquipements.length; k++) {
+          if (tousLesEquipements[k].id === character.equipmentId) {
+            equipementActuel = tousLesEquipements[k];
+            break;
+          }
+        }
+      }
+      this.appliquerEquipmentBonus(equipementActuel);
+
+      // Proposer les équipements du joueur
+      const equipementsPossedes = await EquipmentProvider.fetchEquipementsPossedes();
+      const zoneAttribution = section.querySelector("#champ-equipmnt");
+      
+      if (equipementsPossedes && equipementsPossedes.length > 0) {
+        const interfaceAttribution = this.renderAssignEquipment(character, equipementsPossedes);
+        if (zoneAttribution && interfaceAttribution) {
+          zoneAttribution.appendChild(interfaceAttribution);
+        }
+      }
+    }
+  }
+
+  static renderAssignEquipment(character, equipementsDisponibles) {
+    const conteneur = document.createElement("div");
+
+    const etiquette = document.createElement("label");
+    etiquette.setAttribute("for", "select-equipement");
+    etiquette.className = "text-white fs-5 mb-2 me-2"; 
+    etiquette.textContent = "Équipement :";
+    conteneur.appendChild(etiquette);
+
+    const menuDeroulant = document.createElement("select");
+    menuDeroulant.id = "select-equipement";
+    menuDeroulant.className = "form-select form-card mb-2 d-inline-block w-auto";
+
+    const optionAucun = document.createElement("option");
+    optionAucun.value = "";
+    optionAucun.textContent = "Aucun";
+    menuDeroulant.appendChild(optionAucun);
+
+    for (let i = 0; i < equipementsDisponibles.length; i++) {
+      const equipement = equipementsDisponibles[i];
+      const option = document.createElement("option");
+      option.value = equipement.id;
+      option.textContent = equipement.name;
+      
+      // verifier si c'est l'équipement actuel du personnage
+      if (character.equipmentId !== null && character.equipmentId !== undefined) {
+          if (character.equipmentId === equipement.id) {
+              option.selected = true;
+          }
+      }
+      menuDeroulant.appendChild(option);
+    }
+
+    conteneur.appendChild(menuDeroulant);
+
+    // Changement d'équipement
+    menuDeroulant.addEventListener("change", async function() {
+      let valeurChoisie = this.value;
+      let nouvelId = null;
+      
+      if (valeurChoisie !== "") {
+        nouvelId = valeurChoisie;
+      }
+
+      await CharacterProvider.updateCharacterEquipment(character.id, nouvelId);
+      
+      character.equipmentId = nouvelId;
+      let equipementAssigne = null;
+      
+      if (nouvelId !== null) {
+          for (let j = 0; j < equipementsDisponibles.length; j++) {
+            if (equipementsDisponibles[j].id === nouvelId) {
+              equipementAssigne = equipementsDisponibles[j];
+              break;
+            }
+          }
+      }
+      DetailCharacterView.appliquerEquipmentBonus(equipementAssigne);
+    });
+
+    return conteneur;
+  }
+
+  static appliquerEquipmentBonus(equipement) {
+    const section = document.getElementById("personnage");
+    // Nettoyage des anciens bonus affichés
+    const lignesStats = section.querySelectorAll("[data-stat]");
+    for (let i = 0; i < lignesStats.length; i++) {
+      const ancienBadge = lignesStats[i].querySelector(".equipment-bonus");
+      if (ancienBadge) {
+        ancienBadge.parentNode.removeChild(ancienBadge);
+      }
+    }
+
+    if (equipement !== null) {
+      const bonus = Utils.parseBonusStat(equipement.bonusStat);
+      const ligneCible = section.querySelector("[data-stat='" + bonus.cleHtml + "']");
+
+      const badge = document.createElement("span");
+      badge.className = "equipment-bonus text-success ms-2";
+      badge.textContent = bonus.texte;
+      ligneCible.appendChild(badge);
+    }
   }
 }

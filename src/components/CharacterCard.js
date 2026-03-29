@@ -3,7 +3,7 @@ import FavoriteButton from "./FavoriteButton.js";
 
 export default class CharacterCard {
 
-  static getHtml(character, boutonFavori = true) {
+  static getHtml(character, boutonFavori = true, origine) {
     let etoiles = "";
     let note = character.note;
 
@@ -18,13 +18,22 @@ export default class CharacterCard {
       }
     }
 
-      // mettre le coeur de favoris seulement si boutonFavori est true
-      let coeurHtml = "";
-      if (boutonFavori === true) {
-        // style pour positionner le coeur en haut à droite de la card
-        const style = "position: absolute; top: 4px; right: 13px;"; 
-        coeurHtml = FavoriteButton.getHtml(character.id, 'characters', style);
-      }
+    // mettre le coeur de favoris seulement si boutonFavori est true
+    let coeurHtml = "";
+    if (boutonFavori === true) {
+      // style pour positionner le coeur en haut à droite de la card
+      const style = "position: absolute; top: 4px; right: 13px;";
+      coeurHtml = FavoriteButton.getHtml(character.id, 'characters', style);
+    }
+
+    let href = "#/";
+    if (origine === 'inventaire') {
+      href += "inventaire/personnage/" + character.id;
+    } else if (origine === 'catalogue') {
+      href += "catalogue/personnage/" + character.id;
+    } else {
+      href += "personnage/" + character.id;
+    }
 
     return `
       <div class="col-md-4 mb-4">
@@ -42,7 +51,7 @@ export default class CharacterCard {
               
               <div class="d-flex justify-content-between align-items-center">
                 <div class="text-warning">${etoiles}</div>
-                <a href="#/personnage/${character.id}" class="btn btn-sm btn-outline-light">Détails</a>
+                <a href="${href}" class="btn btn-sm btn-outline-light">Détails</a>
               </div>
             </div>
         </div>

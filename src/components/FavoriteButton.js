@@ -20,8 +20,7 @@ export default class FavoriteButton {
     for (let k = 0; k < boutons.length; k++) {
       boutons[k].onclick = function() {
 
-        let idString = this.getAttribute("data-id");
-        let id = parseInt(idString);
+        let id = this.getAttribute("data-id");
         let type = this.getAttribute("data-type") || "characters";
 
         if (FavoritesService.isFavorite(id, type) === true) {

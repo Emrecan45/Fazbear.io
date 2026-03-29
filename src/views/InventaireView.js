@@ -62,7 +62,7 @@ export default class InventaireView {
       if (mode === 'personnages') {
         let personnagesFiltres = CharacterProvider.filterCharacters(personnagesDuJoueur, filtres);
         let totalPages = Utils.calculerTotalPages(personnagesFiltres.length, itemsParPage);
-        document.getElementById("characters-list").innerHTML = CharactersList.getHtml(personnagesFiltres, page, itemsParPage);
+        document.getElementById("characters-list").innerHTML = CharactersList.getHtml(personnagesFiltres, page, itemsParPage, 'inventaire');
         document.getElementById("pagination").innerHTML = Pagination.render(page, totalPages);
         
         FavoriteButton.gererFavoris();
