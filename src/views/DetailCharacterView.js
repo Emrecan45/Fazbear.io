@@ -30,40 +30,39 @@ export default class DetailCharacterView {
     }
 
     section.innerHTML = `
-      <div class="row mt-4 mb-4">
-        <div class="col-md-5 text-center">
-          <h2>${RarityBadge.getHtml(character.rarete)}</h2>
-          <h1 class="text-white">${character.name}</h1>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-5 mb-4 text-center">
-          <img src="${character.image}" alt="${character.name}" style="max-height: 400px;">
-          
-          <div class="mt-3">
-            <div class="fs-5 mb-2 text-white">Notez cet animatronique</div>
-              <div class="text-warning" style="font-size: 1.8rem;">
-                <span class="star" data-value="1" style="cursor: pointer;">☆</span>
-                <span class="star" data-value="2" style="cursor: pointer;">☆</span>
-                <span class="star" data-value="3" style="cursor: pointer;">☆</span>
-                <span class="star" data-value="4" style="cursor: pointer;">☆</span>
-                <span class="star" data-value="5" style="cursor: pointer;">☆</span>
-              </div>
+      <div class="position-relative">
+        <button id="back-btn" class="btn btn-outline-light position-absolute top-0">Retour</button>
+        <div class="row mt-4 mb-4">
+          <div class="col-md-5 text-center">
+            <h2>${RarityBadge.getHtml(character.rarete)}</h2>
+            <h1 class="text-white">${character.name}</h1>
           </div>
         </div>
 
-        <div class="col-md-7 text-white">
-          <h3>${character.title}</h3>
-          <p class="fs-5 mb-4">${character.description}</p>
-          
-          <p class="fs-5 mb-2" data-stat="force">Force : ${character.stats.force}</p>
-          <p class="fs-5 mb-2" data-stat="agilite">Agilité : ${character.stats.agilite}</p>
-          <p class="fs-5 mb-2" data-stat="intelligence">Intelligence : ${character.stats.intelligence}</p>
-          <div id="champ-equipmnt"></div>
+        <div class="row">
+          <div class="col-md-5 text-center">
+            <img src="${character.image}" alt="${character.name}" style="max-height: 400px;">
+            
+            <div class="mt-3">
+              <div class="fs-5 text-white">Notez cet animatronique</div>
+                <div class="text-warning" style="font-size: 3rem;">
+                  <span class="star" data-value="1" style="cursor: pointer;">☆</span>
+                  <span class="star" data-value="2" style="cursor: pointer;">☆</span>
+                  <span class="star" data-value="3" style="cursor: pointer;">☆</span>
+                  <span class="star" data-value="4" style="cursor: pointer;">☆</span>
+                  <span class="star" data-value="5" style="cursor: pointer;">☆</span>
+                </div>
+            </div>
+          </div>
 
-          <div class="mt-auto text-end pt-3">
-            <button id="back-btn" class="btn btn-outline-light">Retour</button>
+          <div class="col-md-7 text-white">
+            <h3>${character.title}</h3>
+            <p class="fs-5 mb-4">${character.description}</p>
+            
+            <p class="fs-5 mb-2" data-stat="force">Force : ${character.stats.force}</p>
+            <p class="fs-5 mb-2" data-stat="agilite">Agilité : ${character.stats.agilite}</p>
+            <p class="fs-5 mb-2" data-stat="intelligence">Intelligence : ${character.stats.intelligence}</p>
+            <div id="champ-equipmnt"></div>
           </div>
         </div>
       </div>
