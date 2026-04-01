@@ -12,7 +12,7 @@
       },
       "description": "Une version détériorée de Springtrap, rongée et animée par une présence malveillante.",
       "note": 0,
-      "image": "./public/assets/img/BlightedSpringtrap.jpg"
+      "image": "/assets/img/BlightedSpringtrap.jpg"
     },
     {
       "id": "2",
@@ -26,7 +26,7 @@
       },
       "description": "Le lapin guitariste du groupe : mystérieux le jour, agressif la nuit.",
       "note": 0,
-      "image": "./public/assets/img/Bonnie.jpg"
+      "image": "/assets/img/Bonnie.jpg"
     },
     {
       "id": "3",
@@ -40,7 +40,7 @@
       },
       "description": "Animatronique poule connue pour son amour de la nourriture et son compagnon cupcake.",
       "note": 0,
-      "image": "./public/assets/img/Chica.jpg"
+      "image": "/assets/img/Chica.jpg"
     },
     {
       "id": "4",
@@ -54,7 +54,7 @@
       },
       "description": "Une variante de Springtrap perpétuellement embrasée, terrifiante et implacable.",
       "note": 0,
-      "image": "./public/assets/img/FlamingSpringtrap.jpg"
+      "image": "/assets/img/FlamingSpringtrap.jpg"
     },
     {
       "id": "5",
@@ -68,7 +68,7 @@
       },
       "description": "Petit animatronique vif et espiègle, conçu comme une attraction enfantine.",
       "note": 0,
-      "image": "./public/assets/img/FoamBee.jpg"
+      "image": "/assets/img/FoamBee.jpg"
     },
     {
       "id": "6",
@@ -82,8 +82,8 @@
       },
       "description": "Une mascotte théâtrale, exubérante et aux réactions imprévisibles la nuit.",
       "note": 5,
-      "image": "./public/assets/img/FoamSharpay.jpg",
-      "equipmentId": "26"
+      "image": "/assets/img/FoamSharpay.jpg",
+      "equipmentId": null
     },
     {
       "id": "7",
@@ -97,7 +97,7 @@
       },
       "description": "Le leader du groupe, calculateur et souvent associé à l'esprit d'un enfant disparu.",
       "note": 0,
-      "image": "./public/assets/img/Freddy.jpg"
+      "image": "/assets/img/Freddy.jpg"
     },
     {
       "id": "8",
@@ -111,7 +111,7 @@
       },
       "description": "Une variante glacée de Freddy, figée mais dangereuse lorsqu'elle reprend vie.",
       "note": 0,
-      "image": "./public/assets/img/FrozenFreddy.jpg"
+      "image": "/assets/img/FrozenFreddy.jpg"
     },
     {
       "id": "9",
@@ -125,7 +125,7 @@
       },
       "description": "Un animatronique en pièces, reconstruit et instable, célèbre pour son apparence mutilée.",
       "note": 0,
-      "image": "./public/assets/img/Mangle.jpg"
+      "image": "/assets/img/Mangle.jpg"
     },
     {
       "id": "10",
@@ -139,7 +139,7 @@
       },
       "description": "Une présence énigmatique et cosmique, difficile à cerner et étudiée par les fans.",
       "note": 0,
-      "image": "./public/assets/img/OPEntity.jpg"
+      "image": "/assets/img/OPEntity.jpg"
     },
     {
       "id": "11",
@@ -153,7 +153,7 @@
       },
       "description": "Version en peluche plus douce de Chica : trompeuse par son aspect innocent.",
       "note": 0,
-      "image": "./public/assets/img/PlushChica.jpg"
+      "image": "/assets/img/PlushChica.jpg"
     },
     {
       "id": "12",
@@ -167,7 +167,7 @@
       },
       "description": "Une version peluche de Foxy, espiègle et parfois agressive selon la légende.",
       "note": 0,
-      "image": "./public/assets/img/PlushFoxy.jpg"
+      "image": "/assets/img/PlushFoxy.jpg"
     },
     {
       "id": "13",
@@ -181,7 +181,7 @@
       },
       "description": "Réplique en peluche de Freddy, souvent utilisée comme mascotte douce mais troublante.",
       "note": 0,
-      "image": "./public/assets/img/PlushFreddy.jpg"
+      "image": "/assets/img/PlushFreddy.jpg"
     },
     {
       "id": "14",
@@ -195,7 +195,7 @@
       },
       "description": "Une version Funtime en peluche, mélange d'innocence et de bizarrerie.",
       "note": 0,
-      "image": "./public/assets/img/PlushFuntimeFreddy.jpg"
+      "image": "/assets/img/PlushFuntimeFreddy.jpg"
     },
     {
       "id": "15",
@@ -209,7 +209,7 @@
       },
       "description": "Foxy déguisé en ringmaster, charismatique et dangereux sur scène.",
       "note": 0,
-      "image": "./public/assets/img/RingmasterFoxy.jpg"
+      "image": "/assets/img/RingmasterFoxy.jpg"
     },
     {
       "id": "16",
@@ -223,7 +223,7 @@
       },
       "description": "Une déclinaison de Mangle avec des éléments serpentins, imprévisible et rapide.",
       "note": 0,
-      "image": "./public/assets/img/SerpentMangle.jpg"
+      "image": "/assets/img/SerpentMangle.jpg"
     },
     {
       "id": "17",
@@ -237,7 +237,7 @@
       },
       "description": "Personnage flamboyant et théâtral, conçu pour attirer l'attention.",
       "note": 0,
-      "image": "./public/assets/img/Sharpay.jpg"
+      "image": "/assets/img/Sharpay.jpg"
     },
     {
       "id": "18",
@@ -251,7 +251,7 @@
       },
       "description": "Ancienne version liée aux origines des springlocks, mystérieuse et dangereuse.",
       "note": 0,
-      "image": "./public/assets/img/SpringBonnie.jpg"
+      "image": "/assets/img/SpringBonnie.jpg"
     },
     {
       "id": "19",
@@ -265,7 +265,7 @@
       },
       "description": "Le costume qui abrite l'un des antagonistes humains les plus sinistres.",
       "note": 0,
-      "image": "./public/assets/img/Springtrap.jpg"
+      "image": "/assets/img/Springtrap.jpg"
     },
     {
       "id": "20",
@@ -279,7 +279,7 @@
       },
       "description": "Petit personnage d'appoint, souvent utilisé dans les décors et spectacles.",
       "note": 0,
-      "image": "./public/assets/img/SwingBee.jpg"
+      "image": "/assets/img/SwingBee.jpg"
     },
     {
       "id": "21",
@@ -293,7 +293,7 @@
       },
       "description": "Version modernisée et plus lisse de Bonnie, conçue pour les enfants.",
       "note": 0,
-      "image": "./public/assets/img/ToyBonnie.jpg"
+      "image": "/assets/img/ToyBonnie.jpg"
     },
     {
       "id": "22",
@@ -307,7 +307,7 @@
       },
       "description": "Une version abîmée et inquiétante de Bonnie, laissée en pièces.",
       "note": 0,
-      "image": "./public/assets/img/WitheredBonnie.jpg"
+      "image": "/assets/img/WitheredBonnie.jpg"
     },
     {
       "id": "23",
@@ -321,7 +321,7 @@
       },
       "description": "Chica en mauvais état, réputée pour son apparence inquiétante et son compagnon cupcake.",
       "note": 0,
-      "image": "./public/assets/img/WitheredChica.jpg"
+      "image": "/assets/img/WitheredChica.jpg"
     },
     {
       "id": "24",
@@ -335,7 +335,7 @@
       },
       "description": "Une réinterprétation forestière de Freddy, plus rustique mais menaçante.",
       "note": 0,
-      "image": "./public/assets/img/WoodlandFreddy.jpg"
+      "image": "/assets/img/WoodlandFreddy.jpg"
     },
     {
       "id": "25",
@@ -349,7 +349,7 @@
       },
       "description": "Une version cauchemardesque et monstrueuse de Bonnie aux dents acérées.",
       "note": 0,
-      "image": "./public/assets/img/NightmareBonnie.jpg"
+      "image": "/assets/img/NightmareBonnie.jpg"
     },
     {
       "id": "26",
@@ -363,7 +363,7 @@
       },
       "description": "Une illusion monstrueuse de Chica accompagnée de son sinistre cupcake.",
       "note": 0,
-      "image": "./public/assets/img/NightmareChica.jpg"
+      "image": "/assets/img/NightmareChica.jpg"
     },
     {
       "id": "27",
@@ -377,7 +377,7 @@
       },
       "description": "L'animatronique exclu de la crique des pirates, célèbre pour sa vitesse foudroyante.",
       "note": 0,
-      "image": "./public/assets/img/Foxy.jpg"
+      "image": "/assets/img/Foxy.jpg"
     },
     {
       "id": "28",
@@ -391,7 +391,7 @@
       },
       "description": "Une version en plastique brillant de Freddy, conçue avec la reconnaissance faciale.",
       "note": 0,
-      "image": "./public/assets/img/ToyFreddy.jpg"
+      "image": "/assets/img/ToyFreddy.jpg"
     },
     {
       "id": "29",
@@ -405,7 +405,7 @@
       },
       "description": "La nouvelle Chica, souvent vue sans son bec dans les couloirs obscurs.",
       "note": 0,
-      "image": "./public/assets/img/ToyChica.jpg"
+      "image": "/assets/img/ToyChica.jpg"
     },
     {
       "id": "30",
@@ -419,7 +419,7 @@
       },
       "description": "Un assemblage complexe et conscient de tous les animatroniques Funtime.",
       "note": 0,
-      "image": "./public/assets/img/Ennard.jpg"
+      "image": "/assets/img/Ennard.jpg"
     },
     {
       "id": "31",
@@ -433,7 +433,7 @@
       },
       "description": "Une animatronique gracieuse, guidée par le son de sa propre boîte à musique.",
       "note": 0,
-      "image": "./public/assets/img/Ballora.jpg"
+      "image": "/assets/img/Ballora.jpg"
     },
     {
       "id": "32",
@@ -447,7 +447,7 @@
       },
       "description": "Baby, reconstruite à partir de pièces de récupération et animée par une volonté de fer.",
       "note": 0,
-      "image": "./public/assets/img/ScrapCircusBaby.jpg"
+      "image": "/assets/img/ScrapCircusBaby.jpg"
     },
     {
       "id": "33",
@@ -461,7 +461,7 @@
       },
       "description": "La star incontestée du Circus Baby's Pizza World, dotée d'une intelligence redoutable.",
       "note": 0,
-      "image": "./public/assets/img/CircusBaby.jpg"
+      "image": "/assets/img/CircusBaby.jpg"
     },
     {
       "id": "34",
@@ -475,7 +475,7 @@
       },
       "description": "Un enchevêtrement cauchemardesque de câbles, de métal et de dents.",
       "note": 0,
-      "image": "./public/assets/img/NightmareMangle.jpg"
+      "image": "/assets/img/NightmareMangle.jpg"
     },
     {
       "id": "35",
@@ -489,7 +489,7 @@
       },
       "description": "Un Freddy terrifiant, toujours accompagné de ses sbires, les Freddles.",
       "note": 0,
-      "image": "./public/assets/img/NightmareFreddy.jpg"
+      "image": "/assets/img/NightmareFreddy.jpg"
     },
     {
       "id": "36",
@@ -503,7 +503,7 @@
       },
       "description": "Un imposant animatronique à cymbales, extrêmement sensible aux bruits forts.",
       "note": 0,
-      "image": "./public/assets/img/MusicMan.jpg"
+      "image": "/assets/img/MusicMan.jpg"
     },
     {
       "id": "37",
@@ -517,7 +517,7 @@
       },
       "description": "Un petit garçon en plastique rieur, spécialisé dans le vol de piles de lampe torche.",
       "note": 0,
-      "image": "./public/assets/img/BalloonBoy.jpg"
+      "image": "/assets/img/BalloonBoy.jpg"
     },
     {
       "id": "38",
@@ -531,7 +531,7 @@
       },
       "description": "Un ours noir mystérieux, conçu spécifiquement pour capturer une entité bien précise.",
       "note": 0,
-      "image": "./public/assets/img/Lefty.jpg"
+      "image": "/assets/img/Lefty.jpg"
     },
     {
       "id": "39",
@@ -545,7 +545,7 @@
       },
       "description": "Un éléphant magicien qui adore raconter des histoires interminables.",
       "note": 0,
-      "image": "./public/assets/img/OrvilleElephant.jpg"
+      "image": "/assets/img/OrvilleElephant.jpg"
     },
     {
       "id": "40",
@@ -559,7 +559,7 @@
       },
       "description": "Une hallucination dorée, dotée de capacités surnaturelles inexplicables.",
       "note": 0,
-      "image": "./public/assets/img/GoldenFreddy.jpg"
+      "image": "/assets/img/GoldenFreddy.jpg"
     },
     {
       "id": "41",
@@ -573,7 +573,7 @@
       },
       "description": "Le fantôme calciné de Balloon Boy, déclenchant des erreurs systèmes s'il est observé.",
       "note": 0,
-      "image": "./public/assets/img/PhantomBalloonBoy.jpg"
+      "image": "/assets/img/PhantomBalloonBoy.jpg"
     },
     {
       "id": "42",
@@ -587,7 +587,7 @@
       },
       "description": "Un vieil hippopotame violet qui adore partager de longues anecdotes décousues avec son ami Orville.",
       "note": 0,
-      "image": "./public/assets/img/MrHippo.jpg"
+      "image": "/assets/img/MrHippo.jpg"
     },
     {
       "id": "43",
@@ -601,7 +601,7 @@
       },
       "description": "Une version affreuse de Foxy avec une longue langue métallique et des crocs acérés.",
       "note": 0,
-      "image": "./public/assets/img/NightmareFoxy.jpg"
+      "image": "/assets/img/NightmareFoxy.jpg"
     },
     {
       "id": "44",
@@ -615,7 +615,7 @@
       },
       "description": "La marionnette insaisissable qui a donné la vie aux autres pour qu'ils obtiennent vengeance.",
       "note": 0,
-      "image": "./public/assets/img/Puppet.jpg"
+      "image": "/assets/img/Puppet.jpg"
     }
   ],
   "equipment": [
