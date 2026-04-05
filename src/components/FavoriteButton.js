@@ -1,6 +1,8 @@
 import FavoritesService from "../services/FavoritesService.js";
 
 export default class FavoriteButton {
+
+  // Génère le bouton coeur selon si l'élément est favori
   static getHtml(id, type = "characters", style = "") {
     let estFavori = FavoritesService.isFavorite(id, type);
     let coeurClass = "bi-heart";
@@ -14,6 +16,7 @@ export default class FavoriteButton {
     return `<i class="bi ${coeurClass} btn-favori" data-id="${id}" data-type="${type}" style="font-size: 1.5rem; cursor: pointer; color: ${coeurColor}; ${style}"></i>`;
   }
 
+  // Connecte les clics sur les boutons favoris
   static gererFavoris() {
     let boutons = document.querySelectorAll(".btn-favori");
 
@@ -23,6 +26,7 @@ export default class FavoriteButton {
         let id = this.getAttribute("data-id");
         let type = this.getAttribute("data-type") || "characters";
 
+        // changement visuel du coeur et met a jour le localStorage
         if (FavoritesService.isFavorite(id, type) === true) {
           FavoritesService.removeFavorite(id, type);
           this.classList.remove("bi-heart-fill");
@@ -35,6 +39,7 @@ export default class FavoriteButton {
           this.style.color = "#dc3545";
         }
 
+        // Si le filtre favoris est actif = retirer la card de la liste
         let filtreFavoris = document.getElementById("favorisFilter");
         if (filtreFavoris && filtreFavoris.checked) {
           this.parentElement.parentElement.remove();

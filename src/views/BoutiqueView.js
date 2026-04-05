@@ -5,6 +5,8 @@ import CharacterCard from "../components/CharacterCard.js";
 import EquipmentCard from "../components/EquipmentCard.js";
 
 export default class BoutiqueView {
+
+  // Affiche la boutique avec les boutons d'invocation
   static async render() {
     const personnages = await CharacterProvider.fetchCharacters();
     const equipements = await EquipmentProvider.fetchEquipments();
@@ -23,13 +25,14 @@ export default class BoutiqueView {
     const btnEquip = document.getElementById('btn-invoquer-equipement');
     const resultContainer = document.getElementById('result-container');
 
+    // Invoque un personnage aléatoire, l'ajoute à l'inventaire et l'affiche avec une animation
     btnPerso.onclick = function() {
       const obtenu = GachaService.tirageAleatoire(personnages);
       GachaService.ajouterPersonnageAInventaire(obtenu.id);
       btnPerso.disabled = true;
       btnEquip.disabled = true;
       resultContainer.innerHTML = `<div class="row justify-content-center card-invoc">${CharacterCard.getHtml(obtenu, false)}</div>`;
-      resultContainer.offsetWidth;
+      resultContainer.offsetWidth; // Reinitialise l'état du rendu avant d'appliquer l'effet visuel
       resultContainer.querySelector(".card-invoc").classList.add("active");
       setTimeout(() => {
         btnPerso.disabled = false;
@@ -37,13 +40,14 @@ export default class BoutiqueView {
       }, 1000);
     };
 
+    // Invoque un équipement aléatoire, l'ajoute à l'inventaire et l'affiche avec une animation
     btnEquip.onclick = function() {
       const obtenu = GachaService.tirageAleatoire(equipements);
       GachaService.ajouterEquipementAInventaire(obtenu.id);
       btnPerso.disabled = true;
       btnEquip.disabled = true;
       resultContainer.innerHTML = `<div class="row justify-content-center card-invoc">${EquipmentCard.getHtml(obtenu, false)}</div>`;
-      resultContainer.offsetWidth;
+      resultContainer.offsetWidth;// Renitialise l'état du rendu avant d'appliquer l'effet visuel
       resultContainer.querySelector(".card-invoc").classList.add("active");
       setTimeout(() => {
         btnPerso.disabled = false;

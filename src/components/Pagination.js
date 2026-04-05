@@ -1,4 +1,6 @@
 export default class Pagination {
+
+  // Génère les boutons Précédent / Suivant et le compteur de page (les boutons sont invisibles quand il n'y a pas de page precédente ou suivante)
   static render(page, totalPages) {
     let html = '<div class="d-flex justify-content-center align-items-center mt-4 mb-4">';
       if (page > 1) {
@@ -18,6 +20,7 @@ export default class Pagination {
     return html;
   }
 
+  // Connection des clics sur les boutons de pagination
   static gererClics(fonction) {
     let btnPrecedent = document.getElementById("btnPrev");
     let btnSuivant = document.getElementById("btnNext");

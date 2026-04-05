@@ -47,7 +47,7 @@ body {
 }
 
 .card-compact .card-title {
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .card-compact .card-subtitle {
@@ -105,11 +105,11 @@ body {
 }
 
 .equip-card-display .col-md-4 {
-  width: 460px;
+  width: 320px;
 }
 
 #select-equipement {
-  width: 470px;
+  width: 300px;
 }
 
 /* Animation pour l'invocation */

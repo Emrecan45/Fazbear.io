@@ -8,6 +8,7 @@ import CharacterProvider from "./services/CharacterProvider.js";
 
 let header = null;
 
+// Initialisation de l'application
 async function initApp() {
   // reset des équipements possédés dans le json
   let dejaReset = sessionStorage.getItem("reset_effectue");
@@ -18,6 +19,7 @@ async function initApp() {
   router();
 }
 
+// Fonction pour cacher toutes les sections avant d'afficher la bonne (pour SPA)
 function cacherToutesLesSections() {
   let sections = document.querySelectorAll(".section-page");
   for (let i = 0; i < sections.length; i++) {
@@ -34,6 +36,7 @@ function cacherToutesLesSections() {
   header.style.textDecoration = "none";
 }
 
+// Routeur
 async function router() {
   const request = Utils.parseRequestURL();
   // On cache tout avant d'afficher la bonne page
@@ -83,5 +86,6 @@ async function router() {
   }
 }
 
+// Écoute les changements de hash pour naviguer sans rechargement
 window.addEventListener("hashchange", router);
 window.addEventListener("load", initApp);

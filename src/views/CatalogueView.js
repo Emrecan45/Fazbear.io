@@ -10,6 +10,8 @@ import NavigationOnglet from "../components/NavigationOnglet.js";
 import FavoriteButton from "../components/FavoriteButton.js";
 
 export default class CatalogueView {
+
+  // Affiche le catalogue complet avec filtres et pagination
   static async render(mode) {
     let section = document.getElementById("catalogue");
     
@@ -26,6 +28,7 @@ export default class CatalogueView {
 
     let itemsParPage = 6;
 
+    // Applique les filtres et rafraichit l'affichage pour la page demandée
     function updateList(page) {
       window.scrollTo(0, 0);
 

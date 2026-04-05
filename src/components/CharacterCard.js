@@ -3,6 +3,7 @@ import FavoriteButton from "./FavoriteButton.js";
 
 export default class CharacterCard {
 
+  // Génère le HTML d'une card de personnage
   static getHtml(character, boutonFavori = true, origine) {
     let blocNote = "";
     let note = character.note;
@@ -11,6 +12,7 @@ export default class CharacterCard {
       nombreNotes = character.notes.length;
     }
 
+    // Affiche la note uniquement si elle existe et qu'il y a au moins un avis
     if (typeof note !== "undefined" && note > 0 && nombreNotes > 0) {
       blocNote = "<span class='text-warning'>★</span> <strong>" + note + "</strong> <span class='text-secondary'>(" + nombreNotes + " avis)</span>";
     }
@@ -23,6 +25,7 @@ export default class CharacterCard {
       coeurHtml = FavoriteButton.getHtml(character.id, 'characters', style);
     }
 
+    // Construit le lien vers la page de détail selon d'ou on vient
     let href = "#/";
     if (origine === 'inventaire') {
       href += "inventaire/personnage/" + character.id;
@@ -40,7 +43,7 @@ export default class CharacterCard {
 
             <img src="${character.image}" loading="lazy" class="card-img-top card-compact-img" alt="${character.name}">
             <div class="card-body info">
-              <div class="d-flex justify-content-between align-items-start mb-2">
+              <div class="d-flex justify-content-between align-items-start">
                 <h5 class="card-title mb-0">${character.name}</h5>
                 ${RarityBadge.getHtml(character.rarete)}
               </div>

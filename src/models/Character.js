@@ -12,11 +12,7 @@ export default class Character {
     this.rarete = rarete;
 
     this.notes = [];
-    this.inventory = [];
-  }
-
-  assignEquipment(equipmentList) {
-    this.inventory = equipmentList;
+    this.equipmentId = null;
   }
 
   getStatFinale(nomStat, equipement) {
@@ -30,10 +26,12 @@ export default class Character {
     return base;
   }
 
+  // Retourne le nombre de notes reçues
   nombreNotes() {
     return this.notes.length;
   }
 
+  // Calcule et retourne la moyenne des notes
   moyenneNote() {
     if (this.notes.length === 0){
       return "0.0";
@@ -46,6 +44,7 @@ export default class Character {
     return (somme / this.notes.length).toFixed(1);// arrondi à 1 décimale
   }
 
+  // Ajoute une note et met à jour la moyenne
   ajouterNote(nouvelleNote) {
     this.notes.push(nouvelleNote);
     this.note = this.moyenneNote();

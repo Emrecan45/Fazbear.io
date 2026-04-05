@@ -2,6 +2,8 @@ import Character from "../models/Character.js";
 import URL_API from "../config.js";
 
 export default class CharacterProvider {
+
+  // Filtre une liste de personnages selon les critères
   static filterCharacters(personnages, criteres) {
     let resultats = [];
 
@@ -45,6 +47,7 @@ export default class CharacterProvider {
     return resultats;
   }
 
+  // Récupère tous les personnages depuis l'API et les convertit en objets Character
   static async fetchCharacters() {
     try {
       // récupèrer la table de personnages
@@ -105,6 +108,7 @@ export default class CharacterProvider {
     }
   }
 
+  // Retourne les personnages que le joueur possède (stockés en localStorage)
   static async fetchPersonnagesPossedes() {
     const personnages = await this.fetchCharacters();
     
@@ -131,6 +135,7 @@ export default class CharacterProvider {
     return possedes;
   }
 
+  // Met à jour l'équipement d'un personnage
   static async updateCharacterEquipment(characterId, equipmentId) {
     // On récupère le personnage
     const responseGet = await fetch(`${URL_API}/characters/${characterId}`);
@@ -150,6 +155,7 @@ export default class CharacterProvider {
     return updated;
   }
 
+  // Met à jour la note (remplace l'ancienne si elle existe sinon l'ajoute)
   static async updateCharacterNote(characterId, note, ancienneNote) {
     const responseGet = await fetch(`${URL_API}/characters/${characterId}`);
     const data = await responseGet.json();
@@ -175,6 +181,7 @@ export default class CharacterProvider {
     return updated;
   }
 
+  // Remet à null l'équipement de tous les personnages au démarrage
   static async resetEquipments() {
     const personnages = await this.fetchCharacters();
     for (let i = 0; i < personnages.length; i++) {
