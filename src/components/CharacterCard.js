@@ -4,18 +4,15 @@ import FavoriteButton from "./FavoriteButton.js";
 export default class CharacterCard {
 
   static getHtml(character, boutonFavori = true, origine) {
-    let etoiles = "";
+    let blocNote = "";
     let note = character.note;
+    let nombreNotes = 0;
+    if (character.notes && character.notes.length) {
+      nombreNotes = character.notes.length;
+    }
 
-    // Afficher les étoiles seulement si l'utilisateur a déjà donné une note au perso
-    if (typeof note !== "undefined" && note > 0) {
-      for (let j = 1; j <= 5; j++) {
-        if (j <= note) {
-          etoiles += "<span>★</span>";
-        } else {
-          etoiles += "<span>☆</span>";
-        }
-      }
+    if (typeof note !== "undefined" && note > 0 && nombreNotes > 0) {
+      blocNote = "<span class='text-warning'>★</span> <strong>" + note + "</strong> <span class='text-secondary'>(" + nombreNotes + " avis)</span>";
     }
 
     // mettre le coeur de favoris seulement si boutonFavori est true
@@ -42,15 +39,15 @@ export default class CharacterCard {
             ${coeurHtml}
 
             <img src="${character.image}" loading="lazy" class="card-img-top card-compact-img" alt="${character.name}">
-            <div class="card-body">
+            <div class="card-body info">
               <div class="d-flex justify-content-between align-items-start mb-2">
                 <h5 class="card-title mb-0">${character.name}</h5>
                 ${RarityBadge.getHtml(character.rarete)}
               </div>
               <h6 class="card-subtitle text-muted">${character.title}</h6>            
               
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="text-warning" style="font-size: 1.5rem;">${etoiles}</div>
+              <div class="d-flex justify-content-between align-items-end">
+                <div>${blocNote}</div>
                 <a href="${href}" class="btn btn-sm btn-outline-light">Détails</a>
               </div>
             </div>

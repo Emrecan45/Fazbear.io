@@ -17,9 +17,10 @@ export default class DetailCharacterView {
     // récupère les données du personage grace au Provider
     const character = await CharacterProvider.getCharacter(id);
 
+    const notePersonnelleStockee = localStorage.getItem("note_perso_" + id);
     let noteActuelle = 0;
-    if (character.note !== undefined && character.note !== null) {
-      noteActuelle = character.note;
+    if (notePersonnelleStockee !== null) {
+      noteActuelle = parseInt(notePersonnelleStockee);
     }
 
     section.innerHTML = `
@@ -38,6 +39,11 @@ export default class DetailCharacterView {
                   <span class="star" data-value="3" style="cursor: pointer;">☆</span>
                   <span class="star" data-value="4" style="cursor: pointer;">☆</span>
                   <span class="star" data-value="5" style="cursor: pointer;">☆</span>
+                </div>
+                <div id="moyenne-notes" class="d-flex align-items-center justify-content-center gap-2 mt-2 text-white" style="font-size:1.3rem;">
+                  <span class="text-warning">★</span>
+                  <span id="moyenne-etoiles" class="fw-bold"></span>
+                  <span id="moyenne-texte" class="text-secondary"></span>
                 </div>
             </div>
           </div>
@@ -61,6 +67,16 @@ export default class DetailCharacterView {
 
     // ajout des evenement
     const etoiles = section.querySelectorAll(".star");
+    const moyenneEtoiles = section.querySelector("#moyenne-etoiles");
+    const moyenneTexte = section.querySelector("#moyenne-texte");
+    let nombreNotes = character.nombreNotes();
+    let moyenne = character.note;
+
+    function majMoyenne() {
+      moyenneEtoiles.textContent = moyenne;
+      moyenneTexte.textContent = "(" + nombreNotes + " avis)";
+    }
+    majMoyenne();
 
     function majEtoiles(valeur) {
       for (let i = 0; i < etoiles.length; i++) {
@@ -80,9 +96,18 @@ export default class DetailCharacterView {
     for (let i = 0; i < etoiles.length; i++) {
       etoiles[i].addEventListener("click", async function() {
         let noteChoisie = parseInt(this.getAttribute("data-value"));
-        await CharacterProvider.updateCharacterNote(character.id, noteChoisie);
-        character.note = noteChoisie;
+        let ancienneNote = noteActuelle;
+        const updated = await CharacterProvider.updateCharacterNote(character.id, noteChoisie, ancienneNote);
+        if (updated && updated.notes !== undefined) {
+          character.notes = updated.notes;
+          character.note = character.moyenneNote();
+        }
+        localStorage.setItem("note_perso_" + character.id, noteChoisie);
+        noteActuelle = noteChoisie;
         majEtoiles(noteChoisie);
+        nombreNotes = character.nombreNotes();
+        moyenne = character.note;
+        majMoyenne();
       });
     }
 

@@ -111,3 +111,22 @@ body {
 #select-equipement {
   width: 470px;
 }
+
+/* Animation pour l'invocation */
+.card-invoc { 
+  opacity: 0; 
+  transition: opacity 0.5s;
+}
+
+.card-invoc .info { 
+  opacity: 0; 
+  transition: opacity 0.5s 0.3s;
+}
+
+.card-invoc.active { 
+  opacity: 1; 
+}
+
+.card-invoc.active .info { 
+  opacity: 1; 
+}
