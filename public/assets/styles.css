@@ -104,6 +104,14 @@ body {
   margin-top: 0.15rem;
 }
 
+.equip-card-display .col-md-4 {
+  width: 460px;
+}
+
+#select-equipement {
+  width: 470px;
+}
+
 /* Animation pour l'invocation */
 .card-invoc { 
   opacity: 0; 
@@ -115,5 +123,10 @@ body {
   transition: opacity 0.5s 0.3s;
 }
 
-.card-invoc.active { opacity: 1; }
-.card-invoc.active .info { opacity: 1; }
+.card-invoc.active { 
+  opacity: 1; 
+}
+
+.card-invoc.active .info { 
+  opacity: 1; 
+}
