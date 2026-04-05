@@ -1,5 +1,5 @@
 import Character from "../models/Character.js";
-import URL_API from "../config.js";"../config.js";
+import URL_API from "../config.js";
 
 export default class CharacterProvider {
   static filterCharacters(personnages, criteres) {
@@ -68,6 +68,8 @@ export default class CharacterProvider {
         if (item.equipmentId !== undefined) {
           perso.equipmentId = item.equipmentId;
         }
+        perso.notes = item.notes;
+        perso.note = perso.moyenneNote();
         listePersonnagesComplets.push(perso);
       }
 
@@ -92,6 +94,8 @@ export default class CharacterProvider {
         c.image,
         c.rarete
       );
+      perso.notes = c.notes;
+      perso.note = perso.moyenneNote();
       if (c.equipmentId !== undefined) {
         perso.equipmentId = c.equipmentId;
       }
@@ -146,16 +150,25 @@ export default class CharacterProvider {
     return updated;
   }
 
-  static async updateCharacterNote(characterId, note) {
+  static async updateCharacterNote(characterId, note, ancienneNote) {
     const responseGet = await fetch(`${URL_API}/characters/${characterId}`);
-    const personnage = await responseGet.json();
+    const data = await responseGet.json();
 
-    personnage.note = note;
+    if (ancienneNote > 0) {
+      const index = data.notes.indexOf(ancienneNote);
+      if (index !== -1) {
+        data.notes[index] = note;
+      } else {
+        data.notes.push(note);
+      }
+    } else {
+      data.notes.push(note);
+    }
 
     const responsePut = await fetch(`${URL_API}/characters/${characterId}`, {
       method: "PUT",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(personnage)
+      body: JSON.stringify(data)
     });
 
     const updated = await responsePut.json();

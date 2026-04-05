@@ -11,6 +11,7 @@ export default class Character {
     this.image = image;
     this.rarete = rarete;
 
+    this.notes = [];
     this.inventory = [];
   }
 
@@ -27,5 +28,28 @@ export default class Character {
       }
     }
     return base;
+  }
+
+  nombreNotes() {
+    return this.notes.length;
+  }
+
+  moyenneNote() {
+    if (this.notes.length === 0){
+      return "0.0";
+    }
+    let somme = 0;
+    for (let note of this.notes) {
+      somme += note;
+    }
+
+    return (somme / this.notes.length).toFixed(1);// arrondi à 1 décimale
+  }
+
+  ajouterNote(nouvelleNote) {
+    this.notes.push(nouvelleNote);
+    this.note = this.moyenneNote();
+    
+    return this.note;
   }
 }
