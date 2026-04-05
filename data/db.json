@@ -51,9 +51,9 @@
       "title": "Incarnation Enflammée",
       "rarete": "Mythique",
       "stats": {
-        "force": 86,
-        "agilite": 38,
-        "intelligence": 72
+        "force": 92,
+        "agilite": 58,
+        "intelligence": 85
       },
       "description": "Une variante de Springtrap perpétuellement embrasée, terrifiante et implacable.",
       "note": 0,
@@ -67,7 +67,7 @@
       "rarete": "Commun",
       "stats": {
         "force": 28,
-        "agilite": 86,
+        "agilite": 62,
         "intelligence": 40
       },
       "description": "Petit animatronique vif et espiègle, conçu comme une attraction enfantine.",
@@ -82,7 +82,7 @@
       "rarete": "Commun",
       "stats": {
         "force": 30,
-        "agilite": 72,
+        "agilite": 55,
         "intelligence": 48
       },
       "description": "Une mascotte théâtrale, exubérante et aux réactions imprévisibles la nuit.",
@@ -96,9 +96,9 @@
       "title": "Mascotte Principale",
       "rarete": "Rare",
       "stats": {
-        "force": 70,
+        "force": 62,
         "agilite": 50,
-        "intelligence": 82
+        "intelligence": 65
       },
       "description": "Le leader du groupe, calculateur et souvent associé à l'esprit d'un enfant disparu.",
       "note": 0,
@@ -141,9 +141,9 @@
       "title": "Entité Anonyme",
       "rarete": "Mythique",
       "stats": {
-        "force": 58,
-        "agilite": 48,
-        "intelligence": 90
+        "force": 72,
+        "agilite": 68,
+        "intelligence": 95
       },
       "description": "Une présence énigmatique et cosmique, difficile à cerner et étudiée par les fans.",
       "note": 0,
@@ -292,7 +292,7 @@
       "rarete": "Commun",
       "stats": {
         "force": 24,
-        "agilite": 80,
+        "agilite": 58,
         "intelligence": 38
       },
       "description": "Petit personnage d'appoint, souvent utilisé dans les décors et spectacles.",
@@ -381,9 +381,9 @@
       "title": "Cauchemar Affamé",
       "rarete": "Légendaire",
       "stats": {
-        "force": 75,
-        "agilite": 55,
-        "intelligence": 45
+        "force": 82,
+        "agilite": 65,
+        "intelligence": 60
       },
       "description": "Une illusion monstrueuse de Chica accompagnée de son sinistre cupcake.",
       "note": 0,
@@ -397,8 +397,8 @@
       "rarete": "Rare",
       "stats": {
         "force": 50,
-        "agilite": 85,
-        "intelligence": 60
+        "agilite": 72,
+        "intelligence": 55
       },
       "description": "L'animatronique exclu de la crique des pirates, célèbre pour sa vitesse foudroyante.",
       "note": 0,
@@ -547,8 +547,8 @@
       "rarete": "Commun",
       "stats": {
         "force": 10,
-        "agilite": 85,
-        "intelligence": 70
+        "agilite": 58,
+        "intelligence": 45
       },
       "description": "Un petit garçon en plastique rieur, spécialisé dans le vol de piles de lampe torche.",
       "note": 0,
@@ -576,9 +576,9 @@
       "title": "Magicien Médiocre",
       "rarete": "Commun",
       "stats": {
-        "force": 60,
+        "force": 38,
         "agilite": 30,
-        "intelligence": 50
+        "intelligence": 42
       },
       "description": "Un éléphant magicien qui adore raconter des histoires interminables.",
       "note": 0,
@@ -621,9 +621,9 @@
       "title": "Conteur Bavard",
       "rarete": "Commun",
       "stats": {
-        "force": 55,
+        "force": 35,
         "agilite": 25,
-        "intelligence": 60
+        "intelligence": 42
       },
       "description": "Un vieil hippopotame violet qui adore partager de longues anecdotes décousues avec son ami Orville.",
       "note": 0,
