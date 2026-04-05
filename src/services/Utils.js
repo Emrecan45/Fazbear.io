@@ -18,6 +18,7 @@ const Utils = {
     return new Promise((resolve) => setTimeout(resolve, ms));
   },
 
+  // Convertit un texte de bonus comme "+10 force" en objet avec stat, valeur et texte
   parseBonusStat: (texteBonus) => {
     if (texteBonus === undefined || texteBonus === null || texteBonus === "") {
       return null;
@@ -38,7 +39,8 @@ const Utils = {
       texte: valStr
     };
   },
-  
+
+  // Calcule le nombre total de pages pour la pagination
   calculerTotalPages: function(nombreElements, itemsParPage) {
     let total = parseInt(nombreElements / itemsParPage);
     if (nombreElements % itemsParPage !== 0) {

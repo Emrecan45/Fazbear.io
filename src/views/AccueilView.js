@@ -1,4 +1,6 @@
 export default class AccueilView {
+
+  // Affiche la page d'accueil avec la présentation du siteeeeeeeeee
   static async render() {
     let section = document.getElementById("accueil");
     section.style.display = "block";

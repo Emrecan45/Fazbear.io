@@ -42,7 +42,7 @@ Ce projet est une Single Page Application (SPA) en JavaScript permettant de gér
 - Un routeur gère la navigation entre les vues pour respecter la contrainte du SPA.
 - Recherche + pagination sur la liste des personnages.
 - Chaque personnage peut avoir un équipement qui modifiera ses statistiques.
-- Système de notes et de favoris.
+- Système de notes (avec moyenne) et de favoris (coeur sur les cards).
 - Lazy loading sur les images.
 
 ## Commandes

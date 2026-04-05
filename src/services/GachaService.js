@@ -1,5 +1,6 @@
 export default class GachaService {
-  
+
+  // Effectue un tirage aléatoire selon des probabilités par rareté
   static tirageAleatoire(liste) {
     // On prends un nbr au hasard entre 0 et 100 
     let proba = Math.random() * 100;
@@ -18,6 +19,7 @@ export default class GachaService {
       rareteChoisie = "commun";     // 70% de chance
     }
 
+    // On crée une liste de candidats qui ont la rareté choisie
     let candidats = [];
     for (let i = 0; i < liste.length; i++) {
       let item = liste[i];
@@ -32,6 +34,7 @@ export default class GachaService {
     return candidats[indexAleatoire];
   }
 
+  // Ajoute l'id d'un personnage à l'inventaire de le user dans le localStorage
   static ajouterPersonnageAInventaire(id) {
     let inventaire = [];
     let sauvegarde = localStorage.getItem('inventairePersonnages');

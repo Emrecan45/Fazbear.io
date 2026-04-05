@@ -1,11 +1,14 @@
 import EquipmentCard from "./EquipmentCard.js";
 
 export default class EquipmentList {
+
+  // Génère le HTML de la liste des équipements pour une page donnée
   static getHtml(equipements, page = 1, itemsParPage = 6) {
     if (!equipements || equipements.length === 0) {
       return "<p class='text-center'>Aucun équipement trouvé.</p>";
     }
 
+    // Calcule les indices de début et fin pour la page courante
     let startIndex = (page - 1) * itemsParPage;
     let endIndex = startIndex + itemsParPage;
     let html = '<div class="row">';

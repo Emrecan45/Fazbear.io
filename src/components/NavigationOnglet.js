@@ -1,4 +1,6 @@
 export default class NavigationOnglet {
+
+  // Gere l'affichage de l'onglet actif dans la navigation
   static gererOngletsActifs(mode) {
     let tabCharacters = document.getElementById('tab-characters');
     let tabEquipment = document.getElementById('tab-equipment');
@@ -16,6 +18,7 @@ export default class NavigationOnglet {
     }
   }
 
+  // Adapte les options du filtre note selon le mode : étoiles pour les perso et stats pour les équipements
   static setNoteFilter(modeActuel) {
     let noteSelect = document.getElementById('noteFilter');
     if (noteSelect === null) {

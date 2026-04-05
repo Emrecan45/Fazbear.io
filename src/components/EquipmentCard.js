@@ -3,6 +3,7 @@ import FavoriteButton from "./FavoriteButton.js";
 
 export default class EquipmentCard {
 
+  // Génère le HTML d'une card d'équipement
   static getHtml(eq, boutonFavori = true) {
     let badgeRarete = RarityBadge.getHtml(eq.rarete);
     let coeurHtml = "";

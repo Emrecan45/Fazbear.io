@@ -10,6 +10,8 @@ import NavigationOnglet from "../components/NavigationOnglet.js";
 import FavoriteButton from "../components/FavoriteButton.js";
 
 export default class InventaireView {
+
+  // Affiche l'inventaire du joueur avec filtres et pagination
   static async render(mode) {
 
     let section = document.getElementById("inventaire");
@@ -26,6 +28,7 @@ export default class InventaireView {
 
     let contentArea = document.getElementById("content-area");
 
+    // Si l'inventaire est vide= affiche un message et une image
     if (mode === 'personnages' && personnagesDuJoueur.length === 0) {
       contentArea.innerHTML = "<p class='text-center text-white'>Votre inventaire d'animatroniques est vide, allez visiter la boutique !</p>" +
         "<img src='/assets/img/Inventaire.png' alt='Inventaire vide' style='height: 450px; display: block; margin: 0 auto;'>";
@@ -49,6 +52,7 @@ export default class InventaireView {
     contentArea.innerHTML = "<div id='characters-list'></div><div id='pagination'></div>";
     let itemsParPage = 6;
 
+    // Applique les filtres et rafraichit l'affichage pour la page demandée
     function updateList(page) {
       window.scrollTo(0, 0);
       let filtres = FilterService.getFilters();

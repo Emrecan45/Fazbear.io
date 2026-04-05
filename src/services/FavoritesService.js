@@ -1,5 +1,6 @@
 export default class FavoritesService {
-  
+
+  // Retourne la cle de la valeur dans le localStorage pour le type donne (equipment ou personnage)
   static getStorageCle(type) {
     if (type === "equipments") {
       return "favorisEquipements";
@@ -8,6 +9,7 @@ export default class FavoritesService {
     }
   }
 
+  // Retourne la liste des ids favoris pour un type donné (soit personnage soit equipement)
   static getFavorites(type) {
     let cle = this.getStorageCle(type);
     let str = localStorage.getItem(cle);
@@ -21,6 +23,7 @@ export default class FavoritesService {
     return resultat;
   }
 
+  // Vérifie si un élément est dans les favoris
   static isFavorite(id, type) {
     let favs = this.getFavorites(type);
     let trouve = false;
@@ -35,6 +38,7 @@ export default class FavoritesService {
     return trouve;
   }
 
+  // Ajoute un élément aux favoris (si il n'est pas deja dans la liste)
   static addFavorite(id, type) {
     let cle = this.getStorageCle(type);
     let favs = this.getFavorites(type);
@@ -56,6 +60,7 @@ export default class FavoritesService {
     return favs;
   }
 
+  // Retire un élément des favoris
   static removeFavorite(id, type) {
     let cle = this.getStorageCle(type);
     let favs = this.getFavorites(type);
@@ -73,6 +78,7 @@ export default class FavoritesService {
     return nouveau;
   }
 
+  // Change l'état d'un favori : s'il est dejà favori ca le retire des favoris sinon ca l'ajoute aux favori
   static toggleFavorite(id, type) {
     let etatActuel = this.isFavorite(id, type);
 

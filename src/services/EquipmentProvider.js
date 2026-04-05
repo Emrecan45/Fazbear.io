@@ -1,7 +1,9 @@
 import Equipment from "../models/Equipment.js";
-import URL_API from "../config.js";"../config.js";
+import URL_API from "../config.js";
 
 export default class EquipmentProvider {
+
+  // Récupère tous les équipements depuis l'API et les convertit en objets Equipment
   static async fetchEquipments() {
     try {
       const response = await fetch(`${URL_API}/equipment`);
@@ -26,6 +28,7 @@ export default class EquipmentProvider {
     }
   }
 
+  // Filtre une liste d'équipements selon les critères
   static filterEquipments(equipements, criteres) {
     let resultats = [];
 
@@ -79,6 +82,7 @@ export default class EquipmentProvider {
     return resultats;
   }
 
+  // Retourne les équipements que le joueur possède (stockés en localStorage)
   static async fetchEquipementsPossedes() {
     const equipements = await this.fetchEquipments();
     

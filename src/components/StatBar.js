@@ -1,4 +1,6 @@
 export default class StatBar {
+
+  // Génere le HTML d'une barre de stat
   static getHtml(nomStat, nomAffichage, valeurDeBase, couleur) {
     return `
       <div class="mb-3" data-stat="${nomStat}" data-base="${valeurDeBase}">

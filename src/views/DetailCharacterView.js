@@ -6,6 +6,8 @@ import StatBar from "../components/StatBar.js";
 import EquipmentCard from "../components/EquipmentCard.js";
 
 export default class DetailCharacterView {
+
+  // Affiche la page de détail d'un personnage
   static async render(id, origine) {
     
     // on cible d'abord la section ou on va afficher le personnage
@@ -72,12 +74,14 @@ export default class DetailCharacterView {
     let nombreNotes = character.nombreNotes();
     let moyenne = character.note;
 
+    // Met à jour l'affichage de la moyenne
     function majMoyenne() {
       moyenneEtoiles.textContent = moyenne;
       moyenneTexte.textContent = "(" + nombreNotes + " avis)";
     }
     majMoyenne();
 
+    // Met à jour l'affichage des étoiles selon la valeur donnée
     function majEtoiles(valeur) {
       for (let i = 0; i < etoiles.length; i++) {
         let valeurEtoile = parseInt(etoiles[i].getAttribute("data-value"));
@@ -143,6 +147,7 @@ export default class DetailCharacterView {
     }
   }
 
+  // Génère l'interface de sélection d'équipement pour un personnage
   static renderAssignEquipment(character, equipementsDisponibles) {
     const conteneur = document.createElement("div");
 
@@ -153,7 +158,7 @@ export default class DetailCharacterView {
 
     const menuDeroulant = document.createElement("select");
     menuDeroulant.id = "select-equipement";
-    menuDeroulant.className = "form-select form-card mb-2";
+    menuDeroulant.className = "form-select form-card";
 
     const optionAucun = document.createElement("option");
     optionAucun.value = "";
@@ -226,6 +231,7 @@ export default class DetailCharacterView {
     return conteneur;
   }
 
+  // Met à jour les barres de stats avec le bonus de l'équipement assigné
   static appliquerEquipmentBonus(equipement, character) {
     const section = document.getElementById("personnage");
     const anciensBadges = section.querySelectorAll(".equipment-bonus");

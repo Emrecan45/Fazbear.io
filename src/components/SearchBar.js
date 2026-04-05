@@ -1,4 +1,6 @@
 export default class SearchBar {
+
+  // Génere le HTML de la barre de recherche et les filtres
   static getHtml() {
     return `
       <div class="row mb-4 justify-content-center align-items-center gx-3">
